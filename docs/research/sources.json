@@ -1,0 +1,317 @@
+[
+  {
+    "id": "S01",
+    "title": "NI TestStand overview",
+    "url": "https://www.ni.com/en/shop/electronic-test-instrumentation/application-software-for-electronic-test-and-instrumentation-category/what-is-teststand.html",
+    "note": "Product scope and supported code reuse.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S02",
+    "title": "NI on-the-fly reporting and logging",
+    "url": "https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000000P9LdSAK&l=en-US",
+    "note": "Incremental result processing behavior.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S03",
+    "title": "NI Offline Results Processing Utility",
+    "url": "https://www.ni.com/docs/en-US/bundle/teststand/page/teststand-offline-results-processing-utility.html",
+    "note": "Deferred reports and database processing; not a full offline approval guarantee.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S04",
+    "title": "Epsilon3 procedures and work instructions",
+    "url": "https://www.epsilon3.io/procedures-work-instructions",
+    "note": "Controlled revisions, review and redlines.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S05",
+    "title": "Epsilon3 offline step execution",
+    "url": "https://www.epsilon3.io/behind-the-console/epsilon3-changelog14-offline-step-execution-reviews",
+    "note": "Historical evidence for offline step inputs and synchronization.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S06",
+    "title": "Epsilon3 offline procedure start",
+    "url": "https://www.epsilon3.io/behind-the-console/epsilon3-changelog17-offline-start-email-notifications-more-sso",
+    "note": "Historical evidence for prepared offline starts.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S07",
+    "title": "Epsilon3 offline attachments",
+    "url": "https://www.epsilon3.io/behind-the-console/epsilon3-changelog15-offline-comments-attachments-fancy-headers",
+    "note": "Historical evidence for offline comments and attachments.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S08",
+    "title": "Epsilon3 integrations and deployment",
+    "url": "https://www.epsilon3.io/api-integrations",
+    "note": "External data and command integration; deployment options also at https://www.epsilon3.io/pricing .",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S09",
+    "title": "OpenTAP core repository",
+    "url": "https://github.com/opentap/opentap",
+    "note": "Core architecture and MPL 2.0 license.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S10",
+    "title": "OpenTAP overview",
+    "url": "https://doc.opentap.io/User%20Guide/Introduction/Readme.html",
+    "note": "Plans, verdicts, resources and result listeners.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S11",
+    "title": "OpenTAP Python integration",
+    "url": "https://doc.opentap.io/OpenTap.Python/",
+    "note": "Python plugin capability.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S12",
+    "title": "OpenTAP Runner",
+    "url": "https://doc.opentap.io/runner/",
+    "note": "Session/API facilities and registration/licensing references; selected component terms require verification.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S13",
+    "title": "OpenHTF repository and README",
+    "url": "https://github.com/google/openhtf",
+    "note": "Apache 2.0; Python phases, measurements, plugs and attachments.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S14",
+    "title": "OpenC3 Script Runner",
+    "url": "https://docs.openc3.com/docs/tools/script-runner",
+    "note": "Browser scripting, execution controls, suites and lifecycle.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S15",
+    "title": "OpenC3 scripting API",
+    "url": "https://docs.openc3.com/docs/guides/scripting-api",
+    "note": "Python and Ruby command and telemetry integration.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S16",
+    "title": "OpenC3 licenses",
+    "url": "https://docs.openc3.com/docs/meta/licenses",
+    "note": "Current license alternatives, restrictions and enterprise feature boundary.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S17",
+    "title": "Yamcs activities",
+    "url": "https://docs.yamcs.org/yamcs-server-manual/activities/",
+    "note": "Command, stack and script activities and status.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S18",
+    "title": "NASA Open MCT",
+    "url": "https://nasa.github.io/openmct/",
+    "note": "Mission visualization framework.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S19",
+    "title": "AMMOS mission control products",
+    "url": "https://ammos.nasa.gov/mcs/",
+    "note": "Yamcs and Open MCT mission-control integration context.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S20",
+    "title": "Frappe workflows",
+    "url": "https://docs.frappe.io/erpnext/workflows",
+    "note": "Document states, transitions and approval workflow configuration.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S21",
+    "title": "Frappe database API",
+    "url": "https://docs.frappe.io/framework/user/en/api/database",
+    "note": "Transaction behavior and database operations.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S22",
+    "title": "Frappe background jobs",
+    "url": "https://docs.frappe.io/framework/user/en/api/background_jobs",
+    "note": "Queue and after-commit execution facilities.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S23",
+    "title": "MDN browser storage quotas and eviction",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria",
+    "note": "Browser-managed storage persistence and limits.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S24",
+    "title": "PyVISA Python backend",
+    "url": "https://github.com/pyvisa/pyvisa-py",
+    "note": "Message-based instrument transports; per-device support still needs validation.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S25",
+    "title": "SQLite write-ahead logging",
+    "url": "https://www.sqlite.org/wal.html",
+    "note": "WAL durability and operational constraints; also https://www.sqlite.org/pragma.html#pragma_synchronous .",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S26",
+    "title": "Loom v0.12 local source inspection",
+    "url": "Loom_Framework_v0.12.zip  |  version 12",
+    "note": "README.md; docs/ARCHITECTURE.md, REQUIREMENTS.md and DATA_TYPES.md; src/Loom.Core/DocumentService.cs and Storage.cs; src/Loom.Sqlite/SqliteStore.cs; src/Loom.Demo/Program.cs.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S27",
+    "title": "Temporal activity definitions",
+    "url": "https://github.com/temporalio/documentation/blob/main/docs/encyclopedia/activities/activity-definition.mdx",
+    "note": "Idempotency and activity execution behavior; architectural reference, not a selected dependency.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S28",
+    "title": "NASA product verification guidance",
+    "url": "https://www.nasa.gov/reference/5-3-product-verification/",
+    "note": "Verification planning, evidence and discrepancy disposition; project applicability is separate.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S29",
+    "title": "TestStand download and trial",
+    "url": "https://www.ni.com/en/support/downloads/software-products/download.teststand.html",
+    "note": "Current download page advertises seven days; Windows; account required.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S30",
+    "title": "Epsilon3 trial",
+    "url": "https://www.epsilon3.io/trial-request",
+    "note": "Fourteen-day trial requested by contact form.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S31",
+    "title": "OpenTAP downloads",
+    "url": "https://opentap.io/downloads",
+    "note": "Core binaries, platform guides, .NET and Python SDKs.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S32",
+    "title": "COSMOS installation",
+    "url": "https://docs.openc3.com/docs/getting-started/installation",
+    "note": "Containers, offline transport, resource requirements and local browser endpoint.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S33",
+    "title": "COSMOS starter",
+    "url": "https://github.com/OpenC3/cosmos-project",
+    "note": "Inspected commit cd01c9bb8848f7811b46580e1074fef9ab976162; not a full source checkout.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S34",
+    "title": "COSMOS demo",
+    "url": "https://docs.openc3.com/docs/getting-started/gettingstarted",
+    "note": "Simulated targets and runner examples.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S35",
+    "title": "Yamcs quickstart",
+    "url": "https://github.com/yamcs/quickstart",
+    "note": "Simulated spacecraft starter project.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S36",
+    "title": "Nominal platform",
+    "url": "https://nominal.io/",
+    "note": "Vendor advertises offline edge execution and subsequent automatic sync; not tested.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S37",
+    "title": "Nominal Connect",
+    "url": "https://nominal.io/products/connect",
+    "note": "Python hardware test applications at the edge.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S38",
+    "title": "Nominal operational procedures",
+    "url": "https://nominal.io/blog/test-procedures",
+    "note": "Published 2026-08-14; telemetry gates, commanding, event capture and cross-test analysis.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S39",
+    "title": "Nominal documentation",
+    "url": "https://docs.nominal.io/home",
+    "note": "Core, Connect and Python SDK documentation entry point.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S40",
+    "title": "Sift platform",
+    "url": "https://www.siftstack.com/",
+    "note": "Adjacent telemetry, rule-based review and reporting platform; vendor claims.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S41",
+    "title": "First Resonance ION",
+    "url": "https://www.firstresonance.io/ion",
+    "note": "Adjacent manufacturing execution, redlines, revision control, workflows and API.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S42",
+    "title": "OpenTAP community license announcement",
+    "url": "https://news.opentap.io/opentap-version-9-29-release",
+    "note": "Announcement of no-cost PathWave community licensing; selected edition terms need checking.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S43",
+    "title": "PathWave Test Automation",
+    "url": "https://www.keysight.com/zz/en/products/software/pathwave-test-software/pathwave-test-automation-software.html",
+    "note": "Commercial tooling around OpenTAP.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S44",
+    "title": "Nominal Instro",
+    "url": "https://github.com/nominal-io/instro",
+    "note": "Instrument library candidate; driver/license audit not performed.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S45",
+    "title": "Epsilon3 plans",
+    "url": "https://www.epsilon3.io/pricing",
+    "note": "Deployment and seat model; obtain a scoped quote.",
+    "reviewed": "2026-10-14"
+  }
+]

@@ -1,0 +1,770 @@
+[
+  {
+    "id": "PROC-01",
+    "title": "Stable identity",
+    "priority": "P0",
+    "owner": "Procedure service",
+    "requirement": "The system shall assign permanent IDs to procedures, revisions and steps, independent of displayed numbering.",
+    "acceptance": "Insert a step and verify historical signatures and result links still reference the original steps."
+  },
+  {
+    "id": "PROC-02",
+    "title": "Immutable release",
+    "priority": "P0",
+    "owner": "Procedure service",
+    "requirement": "The system shall freeze a released revision and its dependent content; edits shall create a new revision.",
+    "acceptance": "Modify a draft and verify an existing released package and its digest remain unchanged."
+  },
+  {
+    "id": "PROC-03",
+    "title": "Structured steps",
+    "priority": "P0",
+    "owner": "Procedure service",
+    "requirement": "The system shall support instructions, typed inputs, measurements, scripts, hold points, witnesses, attachments and subprocedures.",
+    "acceptance": "Execute a representative procedure containing every supported step type with required inputs enforced."
+  },
+  {
+    "id": "PROC-04",
+    "title": "Execution guards",
+    "priority": "P0",
+    "owner": "Procedure service",
+    "requirement": "The system shall enforce prerequisites, allowed branches, loops and mandatory hold points in the runtime.",
+    "acceptance": "Attempt a direct API bypass of a hold point and confirm rejection and an audit event."
+  },
+  {
+    "id": "PROC-05",
+    "title": "Release validation",
+    "priority": "P0",
+    "owner": "Procedure service",
+    "requirement": "The system shall reject missing references, invalid units, unresolved required roles and unsupported package dependencies.",
+    "acceptance": "Run invalid-package fixtures and verify release is blocked with actionable diagnostics."
+  },
+  {
+    "id": "PROC-06",
+    "title": "Configuration applicability",
+    "priority": "P0",
+    "owner": "Procedure service",
+    "requirement": "The system shall restrict procedure use by article identity, configuration and approved applicability rules.",
+    "acceptance": "Start against a mismatched hardware revision and confirm an explicit blocking result."
+  },
+  {
+    "id": "PROC-07",
+    "title": "Import and export",
+    "priority": "P1",
+    "owner": "Procedure service",
+    "requirement": "The system shall import structured procedures as drafts and export full content with stable identities and revision history.",
+    "acceptance": "Round-trip a procedure and identify any unsupported imported content before release."
+  },
+  {
+    "id": "PROC-08",
+    "title": "Requirement mapping",
+    "priority": "P0",
+    "owner": "Procedure service",
+    "requirement": "The system shall link steps and analyses to versioned verification requirements and methods.",
+    "acceptance": "Change a requirement revision and verify affected released procedures and evidence are flagged for review."
+  },
+  {
+    "id": "EXEC-01",
+    "title": "Run identity",
+    "priority": "P0",
+    "owner": "Station runtime",
+    "requirement": "The system shall assign unique run and attempt IDs with article, station, package and personnel context.",
+    "acceptance": "Start two offline runs and verify their imported records cannot collide."
+  },
+  {
+    "id": "EXEC-02",
+    "title": "Durable transitions",
+    "priority": "P0",
+    "owner": "Station runtime",
+    "requirement": "The system shall commit an accepted transition and its event before returning success to the browser.",
+    "acceptance": "Terminate immediately after acknowledgment and recover the same accepted state."
+  },
+  {
+    "id": "EXEC-03",
+    "title": "Explicit outcomes",
+    "priority": "P0",
+    "owner": "Station runtime",
+    "requirement": "The system shall distinguish pass, fail, inconclusive, error, invalid, aborted, skipped and not evaluated outcomes.",
+    "acceptance": "Inject each outcome and verify it cannot become pass through missing data or an exception."
+  },
+  {
+    "id": "EXEC-04",
+    "title": "Hold and resume",
+    "priority": "P0",
+    "owner": "Station runtime",
+    "requirement": "The system shall apply declared hold and browser-disconnect policies, and recheck prerequisites before resumption.",
+    "acceptance": "Close the browser during acquisition, then change an instrument during a hold; verify the declared response and blocked resume."
+  },
+  {
+    "id": "EXEC-05",
+    "title": "Unknown outcome",
+    "priority": "P0",
+    "owner": "Station runtime",
+    "requirement": "The system shall enter recovery required after an interrupted operation whose hardware effect cannot be established.",
+    "acceptance": "Crash after command transmission but before result persistence; verify no automatic retransmission."
+  },
+  {
+    "id": "EXEC-06",
+    "title": "Retry classification",
+    "priority": "P0",
+    "owner": "Station runtime",
+    "requirement": "The system shall require each operation to declare read-only, idempotent or nonrepeatable behavior with an approved retry policy.",
+    "acceptance": "Verify retries are bounded and a nonrepeatable operation cannot use generic automatic retries."
+  },
+  {
+    "id": "EXEC-07",
+    "title": "Resource ownership",
+    "priority": "P0",
+    "owner": "Station runtime",
+    "requirement": "The system shall permit one controlling authority per run and exclusive resource set, including during disconnection.",
+    "acceptance": "Attempt a second controller and confirm hardware access is denied until a valid handoff."
+  },
+  {
+    "id": "EXEC-08",
+    "title": "Handover record",
+    "priority": "P0",
+    "owner": "Station runtime",
+    "requirement": "The system shall record shift handover, active configuration, held operations and transfer of operator responsibility.",
+    "acceptance": "Resume after a personnel change and verify the new operator acknowledges outstanding conditions."
+  },
+  {
+    "id": "AUTH-01",
+    "title": "Individual identity",
+    "priority": "P0",
+    "owner": "Identity and approval service",
+    "requirement": "The system shall authenticate individual operators, witnesses and approvers without shared sign-off accounts.",
+    "acceptance": "Verify two people using one workstation retain distinct authenticated signature records."
+  },
+  {
+    "id": "AUTH-02",
+    "title": "Independent witness",
+    "priority": "P0",
+    "owner": "Identity and approval service",
+    "requirement": "The system shall enforce separate operator and QA identities when a step requires independence.",
+    "acceptance": "Give one account both roles and confirm it still cannot satisfy both signatures."
+  },
+  {
+    "id": "AUTH-03",
+    "title": "Approval policies",
+    "priority": "P0",
+    "owner": "Identity and approval service",
+    "requirement": "The system shall support named approvers, role slots, all-of and explicitly configured quorum rules with ordering.",
+    "acceptance": "Exercise three required approvers, rejection and optional observers without premature approval."
+  },
+  {
+    "id": "AUTH-04",
+    "title": "Signature meaning",
+    "priority": "P0",
+    "owner": "Identity and approval service",
+    "requirement": "The system shall bind each signature to identity, role, meaning, timestamp, policy and exact subject/evidence digest.",
+    "acceptance": "Alter the signed content and verify the old signature cannot approve the new revision."
+  },
+  {
+    "id": "AUTH-05",
+    "title": "Reauthentication",
+    "priority": "P0",
+    "owner": "Identity and approval service",
+    "requirement": "The system shall require a configured confirmation and reauthentication policy for consequential signatures.",
+    "acceptance": "Expire a signing session and verify a normal UI click cannot silently sign."
+  },
+  {
+    "id": "AUTH-06",
+    "title": "Offline authority",
+    "priority": "P0",
+    "owner": "Identity and approval service",
+    "requirement": "The system shall validate locally provisioned, bounded identity and role grants for disconnected actions.",
+    "acceptance": "Cold-start offline and verify permitted signing works while an expired or out-of-scope grant fails."
+  },
+  {
+    "id": "AUTH-07",
+    "title": "Observers and comments",
+    "priority": "P0",
+    "owner": "Identity and approval service",
+    "requirement": "The system shall separate viewing, commenting, executing, witnessing and approving permissions.",
+    "acceptance": "Verify a read-only collaborator neither mutates the run nor becomes a required approver."
+  },
+  {
+    "id": "AUTH-08",
+    "title": "Delegation and revocation",
+    "priority": "P0",
+    "owner": "Identity and approval service",
+    "requirement": "The system shall record authorized delegation and reconcile newly discovered revocations without erasing prior signatures.",
+    "acceptance": "Revoke an offline user centrally and verify reconnect creates an attributable review issue."
+  },
+  {
+    "id": "CHG-01",
+    "title": "Proposed redlines",
+    "priority": "P0",
+    "owner": "Change control service",
+    "requirement": "The system shall record redlines as explicit proposals with original content, proposed content, reason and affected scope.",
+    "acceptance": "Show the exact before/after change and proposer for an inserted or altered step."
+  },
+  {
+    "id": "CHG-02",
+    "title": "Approval before use",
+    "priority": "P0",
+    "owner": "Change control service",
+    "requirement": "The system shall block affected execution until the required redline approvals are complete.",
+    "acceptance": "Propose a changed limit while running and verify the original approved limit remains operative."
+  },
+  {
+    "id": "CHG-03",
+    "title": "Run and master scope",
+    "priority": "P0",
+    "owner": "Change control service",
+    "requirement": "The system shall distinguish run-only changes from proposed changes to the master procedure.",
+    "acceptance": "Approve a run insertion and verify other runs and the released master do not change."
+  },
+  {
+    "id": "CHG-04",
+    "title": "Evidence preservation",
+    "priority": "P0",
+    "owner": "Change control service",
+    "requirement": "The system shall retain original observations and append corrections with reason, author and time.",
+    "acceptance": "Correct a signed numeric result and verify both values and affected approvals remain traceable."
+  },
+  {
+    "id": "CHG-05",
+    "title": "Skip and defer",
+    "priority": "P0",
+    "owner": "Change control service",
+    "requirement": "The system shall require reason, authority and disposition for skipped, deferred or not-applicable required steps.",
+    "acceptance": "Attempt closure with an unauthorized skip and confirm it is blocked."
+  },
+  {
+    "id": "CHG-06",
+    "title": "Retest linkage",
+    "priority": "P0",
+    "owner": "Change control service",
+    "requirement": "The system shall create a new attempt for every retest and retain prior failed and invalid attempts.",
+    "acceptance": "Pass a retest and verify the failed attempt remains in reports and requirement disposition."
+  },
+  {
+    "id": "CHG-07",
+    "title": "Impact invalidation",
+    "priority": "P0",
+    "owner": "Change control service",
+    "requirement": "The system shall mark affected downstream evidence and approvals for reevaluation after consequential changes.",
+    "acceptance": "Change a calibration correction or limit and verify dependent analysis approval becomes stale."
+  },
+  {
+    "id": "CHG-08",
+    "title": "Nonconformance",
+    "priority": "P0",
+    "owner": "Change control service",
+    "requirement": "The system shall link deviations and nonconformances to article, run, affected steps and authorized dispositions.",
+    "acceptance": "Accept a documented waiver and verify the measured failure is preserved rather than relabeled pass."
+  },
+  {
+    "id": "HW-01",
+    "title": "Script provenance",
+    "priority": "P0",
+    "owner": "Workers and instrument gateway",
+    "requirement": "The system shall execute only approved script packages with pinned dependencies and recorded hashes in flight mode.",
+    "acceptance": "Change one script byte or dependency and confirm execution is refused."
+  },
+  {
+    "id": "HW-02",
+    "title": "Process isolation",
+    "priority": "P0",
+    "owner": "Workers and instrument gateway",
+    "requirement": "The system shall run scripts in supervised worker processes with bounded resources and separate credentials.",
+    "acceptance": "Hang or crash a worker and verify the UI, journal and supervision remain available."
+  },
+  {
+    "id": "HW-03",
+    "title": "Driver abstraction",
+    "priority": "P0",
+    "owner": "Workers and instrument gateway",
+    "requirement": "The system shall provide versioned adapters for VISA, serial, USB and required vendor APIs with simulated equivalents.",
+    "acceptance": "Run the same measurement contract against a simulator and representative approved equipment."
+  },
+  {
+    "id": "HW-04",
+    "title": "Instrument identity",
+    "priority": "P0",
+    "owner": "Workers and instrument gateway",
+    "requirement": "The system shall verify actual device identity and configured resource mapping before permitting commands.",
+    "acceptance": "Swap two USB devices or change an address and verify the wrong instrument is blocked."
+  },
+  {
+    "id": "HW-05",
+    "title": "Operation journal",
+    "priority": "P0",
+    "owner": "Workers and instrument gateway",
+    "requirement": "The system shall persist command intent, operation ID and observed outcome without claiming atomic hardware execution.",
+    "acceptance": "Interrupt at each dispatch boundary and verify an honest completed or unknown classification."
+  },
+  {
+    "id": "HW-06",
+    "title": "Bounded cancellation",
+    "priority": "P0",
+    "owner": "Workers and instrument gateway",
+    "requirement": "The system shall specify command timeouts, cancellation escalation and equipment-specific recovery actions.",
+    "acceptance": "Block a driver call and demonstrate the approved timeout and independent recovery behavior."
+  },
+  {
+    "id": "HW-07",
+    "title": "Safety boundary",
+    "priority": "P0",
+    "owner": "Workers and instrument gateway",
+    "requirement": "The system shall respect independent interlocks and enforce approved command envelopes and operating modes.",
+    "acceptance": "Request an out-of-envelope command and verify rejection; prove a failed process cannot defeat the hardware interlock."
+  },
+  {
+    "id": "HW-08",
+    "title": "Data protocol",
+    "priority": "P0",
+    "owner": "Workers and instrument gateway",
+    "requirement": "The system shall ingest typed worker measurements and artifacts through a validated protocol separate from diagnostic logs.",
+    "acceptance": "Send malformed units, duplicate samples and a truncated artifact; verify explicit rejection or incomplete status."
+  },
+  {
+    "id": "CAL-01",
+    "title": "Asset chain",
+    "priority": "P0",
+    "owner": "Asset and reference adapters",
+    "requirement": "The system shall record instrument, channel, probe, cable, fixture and transducer identities needed for measurement traceability.",
+    "acceptance": "Reconstruct the complete measurement chain from the saved run without live asset-system access."
+  },
+  {
+    "id": "CAL-02",
+    "title": "Calibration snapshot",
+    "priority": "P0",
+    "owner": "Asset and reference adapters",
+    "requirement": "The system shall retain certificate revision, validity interval, correction data, uncertainty and source retrieval metadata.",
+    "acceptance": "Disconnect the calibration database and reproduce the context from the prepared package."
+  },
+  {
+    "id": "CAL-03",
+    "title": "Validity checks",
+    "priority": "P0",
+    "owner": "Asset and reference adapters",
+    "requirement": "The system shall check calibration at preparation and required use points, including expiry during a long test.",
+    "acceptance": "Cross an expiry boundary and verify the approved hold or disposition policy is enforced."
+  },
+  {
+    "id": "CAL-04",
+    "title": "Reference freshness",
+    "priority": "P0",
+    "owner": "Asset and reference adapters",
+    "requirement": "The system shall apply configured freshness and expiry policies to each cached external reference.",
+    "acceptance": "Use a stale required reference offline and verify the action is blocked or explicitly authorized."
+  },
+  {
+    "id": "CAL-05",
+    "title": "Controlled exceptions",
+    "priority": "P0",
+    "owner": "Asset and reference adapters",
+    "requirement": "The system shall require scoped approval for calibration or reference exceptions and record affected measurements.",
+    "acceptance": "Verify an exception for one instrument and run does not authorize another."
+  },
+  {
+    "id": "CAL-06",
+    "title": "Recall impact",
+    "priority": "P0",
+    "owner": "Asset and reference adapters",
+    "requirement": "The system shall identify past measurements and analyses affected by a later calibration recall or out-of-tolerance finding.",
+    "acceptance": "Recall a certificate and generate the exact affected evidence set with review tasks."
+  },
+  {
+    "id": "CAL-07",
+    "title": "Measurement quality",
+    "priority": "P0",
+    "owner": "Asset and reference adapters",
+    "requirement": "The system shall retain range, resolution, uncertainty model and approved guard-band decision rules when applicable.",
+    "acceptance": "Evaluate values near a limit and verify the approved rule and its revision are reported."
+  },
+  {
+    "id": "CAL-08",
+    "title": "External adapters",
+    "priority": "P1",
+    "owner": "Asset and reference adapters",
+    "requirement": "The system shall provide read adapters with provenance, timeouts, schema validation and independently testable mappings.",
+    "acceptance": "Change an upstream schema and verify failure is explicit without modifying prior snapshots."
+  },
+  {
+    "id": "DATA-01",
+    "title": "Measurement representation",
+    "priority": "P0",
+    "owner": "Evidence service",
+    "requirement": "The system shall preserve raw values, units, precision, validity flags and evaluated limits without silent conversion.",
+    "acceptance": "Round-trip large integers, decimals, timestamps and invalid readings without loss or false pass."
+  },
+  {
+    "id": "DATA-02",
+    "title": "Raw and derived data",
+    "priority": "P0",
+    "owner": "Evidence service",
+    "requirement": "The system shall retain raw acquisitions separately from reductions, corrections and analysis outputs.",
+    "acceptance": "Recompute a derived value from retained raw evidence and identify the exact algorithm revision."
+  },
+  {
+    "id": "DATA-03",
+    "title": "Large artifacts",
+    "priority": "P0",
+    "owner": "Evidence service",
+    "requirement": "The system shall stream waveforms, images and binary files to bounded local storage with size and digest manifests.",
+    "acceptance": "Acquire a 10 GB artifact without loading it entirely into memory and detect a truncated final chunk."
+  },
+  {
+    "id": "DATA-04",
+    "title": "Timing evidence",
+    "priority": "P0",
+    "owner": "Evidence service",
+    "requirement": "The system shall record source time, receipt time, clock source, synchronization quality and sequence order.",
+    "acceptance": "Move the wall clock backward and verify event order remains reconstructable and uncertainty is visible."
+  },
+  {
+    "id": "DATA-05",
+    "title": "Evidence integrity",
+    "priority": "P0",
+    "owner": "Evidence service",
+    "requirement": "The system shall verify content digests and signed checkpoints when storing, synchronizing and exporting evidence.",
+    "acceptance": "Alter or remove a retained event or artifact and verify the integrity check detects it."
+  },
+  {
+    "id": "DATA-06",
+    "title": "Storage exhaustion",
+    "priority": "P0",
+    "owner": "Evidence service",
+    "requirement": "The system shall monitor capacity and apply a validated reserve policy before new operations can exhaust evidence storage.",
+    "acceptance": "Fill the disk during acquisition and verify explicit incomplete evidence and the approved safe response."
+  },
+  {
+    "id": "DATA-07",
+    "title": "Portable record",
+    "priority": "P0",
+    "owner": "Evidence service",
+    "requirement": "The system shall export human-readable reports and machine-readable events, schemas, manifests and raw artifacts.",
+    "acceptance": "Open an export on an isolated clean system and verify its completeness without a running server."
+  },
+  {
+    "id": "DATA-08",
+    "title": "Retention and restoration",
+    "priority": "P0",
+    "owner": "Evidence service",
+    "requirement": "The system shall retain protected records and verify coordinated backup and restore of journals and artifact files.",
+    "acceptance": "Restore a backup and compare all committed evidence and manifest hashes with the source."
+  },
+  {
+    "id": "OFF-01",
+    "title": "Local web application",
+    "priority": "P0",
+    "owner": "Local station runtime",
+    "requirement": "The system shall serve all required UI assets and APIs locally without runtime Internet dependencies.",
+    "acceptance": "Start the browser and station after a reboot with every external network disconnected."
+  },
+  {
+    "id": "OFF-02",
+    "title": "Prepared package",
+    "priority": "P0",
+    "owner": "Local station runtime",
+    "requirement": "The system shall verify package completeness, signatures, dependencies, reference validity and storage before offline readiness.",
+    "acceptance": "Remove each required package element in turn and verify readiness fails."
+  },
+  {
+    "id": "OFF-03",
+    "title": "Local source of record",
+    "priority": "P0",
+    "owner": "Local station runtime",
+    "requirement": "The system shall record every acknowledged input, signature, transition and result locally before replication.",
+    "acceptance": "Disable the central database throughout a run and recover every acknowledged record locally."
+  },
+  {
+    "id": "OFF-04",
+    "title": "Crash durability",
+    "priority": "P0",
+    "owner": "Local station runtime",
+    "requirement": "The system shall recover committed events and identify incomplete operations after process or power interruption.",
+    "acceptance": "Inject interruptions across commit boundaries on the target storage and verify no acknowledged event is lost."
+  },
+  {
+    "id": "OFF-05",
+    "title": "Disconnected duration",
+    "priority": "P0",
+    "owner": "Local station runtime",
+    "requirement": "The system shall support a proposed seven-day isolated campaign within an approved authority and capacity budget.",
+    "acceptance": "Complete a seven-day soak without external authentication, licensing, package or time-service dependencies."
+  },
+  {
+    "id": "OFF-06",
+    "title": "Offline collaboration",
+    "priority": "P0",
+    "owner": "Local station runtime",
+    "requirement": "The system shall support authorized local operator and witness use through one station authority, with explicit connectivity status.",
+    "acceptance": "Use two browsers on an isolated LAN and reject conflicting execution actions."
+  },
+  {
+    "id": "OFF-07",
+    "title": "Readiness boundaries",
+    "priority": "P0",
+    "owner": "Local station runtime",
+    "requirement": "The system shall distinguish central service failure from unavailable local storage, invalid authority or missing safety prerequisites.",
+    "acceptance": "Verify central outage permits prepared work while loss of local durable storage inhibits new operations."
+  },
+  {
+    "id": "OFF-08",
+    "title": "Portable transport",
+    "priority": "P1",
+    "owner": "Local station runtime",
+    "requirement": "The system shall support encrypted, signed export/import bundles when network synchronization is unavailable.",
+    "acceptance": "Import the same removable-media bundle twice and verify deduplication and custody records."
+  },
+  {
+    "id": "SYNC-01",
+    "title": "Transactional outbox",
+    "priority": "P0",
+    "owner": "Replication service",
+    "requirement": "The system shall atomically store each accepted event and its replication obligation in the local transaction.",
+    "acceptance": "Crash after commit and before upload; verify the event remains queued after restart."
+  },
+  {
+    "id": "SYNC-02",
+    "title": "Idempotent ingest",
+    "priority": "P0",
+    "owner": "Replication service",
+    "requirement": "The system shall deduplicate retransmissions by stable identity and reject identical IDs with different content.",
+    "acceptance": "Retry a batch after losing its acknowledgment and verify exactly one central record per event."
+  },
+  {
+    "id": "SYNC-03",
+    "title": "Resumable transfer",
+    "priority": "P0",
+    "owner": "Replication service",
+    "requirement": "The system shall resume verified artifact chunks without marking incomplete evidence as complete.",
+    "acceptance": "Disconnect repeatedly during a 10 GB upload and verify the final digest and missing-chunk accounting."
+  },
+  {
+    "id": "SYNC-04",
+    "title": "Completeness receipt",
+    "priority": "P0",
+    "owner": "Replication service",
+    "requirement": "The system shall issue reconciliation receipts only after required sequences, signatures and artifacts validate.",
+    "acceptance": "Upload all metadata but omit one attachment and verify closure remains blocked."
+  },
+  {
+    "id": "SYNC-05",
+    "title": "Conflict quarantine",
+    "priority": "P0",
+    "owner": "Replication service",
+    "requirement": "The system shall preserve conflicting signed records and require explicit resolution instead of last-writer-wins.",
+    "acceptance": "Submit two incompatible offline branches and verify both survive with a blocked disputed transition."
+  },
+  {
+    "id": "SYNC-06",
+    "title": "Ownership fencing",
+    "priority": "P0",
+    "owner": "Replication service",
+    "requirement": "The system shall reject stale ownership epochs and prevent resynchronization from authorizing a second hardware commander.",
+    "acceptance": "Reconnect an old station after handoff and verify it cannot resume instrument control."
+  },
+  {
+    "id": "SYNC-07",
+    "title": "Reference reconciliation",
+    "priority": "P0",
+    "owner": "Replication service",
+    "requirement": "The system shall compare execution snapshots with later releases, recalls and revocations and generate review tasks.",
+    "acceptance": "Reconnect after a calibration recall and verify affected runs are flagged without history edits."
+  },
+  {
+    "id": "SYNC-08",
+    "title": "Retention acknowledgment",
+    "priority": "P0",
+    "owner": "Replication service",
+    "requirement": "The system shall retain local evidence until complete central receipt and configured backup/retention gates are met.",
+    "acceptance": "Lose the final receipt or fail the central backup gate and verify local cleanup is refused."
+  },
+  {
+    "id": "CLOSE-01",
+    "title": "Execution checklist",
+    "priority": "P0",
+    "owner": "Review and analysis services",
+    "requirement": "The system shall require step dispositions, required signatures, evidence completeness and final article configuration for execution review.",
+    "acceptance": "Leave each item unresolved in turn and verify the review gate explains the blocker."
+  },
+  {
+    "id": "CLOSE-02",
+    "title": "Separate analysis",
+    "priority": "P0",
+    "owner": "Review and analysis services",
+    "requirement": "The system shall track analysis tasks, owners, inputs and approvals independently from execution completion.",
+    "acceptance": "Complete a run with analysis pending and verify it is not labeled fully closed."
+  },
+  {
+    "id": "CLOSE-03",
+    "title": "Reproducible analysis",
+    "priority": "P0",
+    "owner": "Review and analysis services",
+    "requirement": "The system shall record analysis code, dependencies, parameters, input hashes and output revisions.",
+    "acceptance": "Re-run the approved analysis on retained inputs and compare outputs under stated tolerances."
+  },
+  {
+    "id": "CLOSE-04",
+    "title": "Approval invalidation",
+    "priority": "P0",
+    "owner": "Review and analysis services",
+    "requirement": "The system shall invalidate applicability of analysis approval when its inputs, code or acceptance rules change.",
+    "acceptance": "Revise a reduction script and verify a new analysis approval is required."
+  },
+  {
+    "id": "CLOSE-05",
+    "title": "Closure gate",
+    "priority": "P0",
+    "owner": "Review and analysis services",
+    "requirement": "The system shall permit final closure only after reconciliation, required approvals and authorized deviation dispositions.",
+    "acceptance": "Attempt closure with one missing approver, unresolved conflict or incomplete upload and confirm denial."
+  },
+  {
+    "id": "CLOSE-06",
+    "title": "Requirement disposition",
+    "priority": "P0",
+    "owner": "Review and analysis services",
+    "requirement": "The system shall report verified, failed, waived, invalid and not-yet-verified requirements with evidence links.",
+    "acceptance": "Verify a waived failure remains distinct from a measured pass in the verification matrix."
+  },
+  {
+    "id": "CLOSE-07",
+    "title": "Amendment lifecycle",
+    "priority": "P0",
+    "owner": "Review and analysis services",
+    "requirement": "The system shall reopen closed records through controlled amendments while preserving the prior closure manifest.",
+    "acceptance": "Correct an archived analysis and reconstruct both the original and amended acceptance states."
+  },
+  {
+    "id": "CLOSE-08",
+    "title": "Work queues",
+    "priority": "P1",
+    "owner": "Review and analysis services",
+    "requirement": "The system shall provide ownership, due dates, escalation and observer access for execution and analysis action items.",
+    "acceptance": "Assign overdue tasks and verify notifications do not silently approve or close them."
+  },
+  {
+    "id": "SEC-01",
+    "title": "Enforced access",
+    "priority": "P0",
+    "owner": "Platform and assurance",
+    "requirement": "The system shall enforce role, project and article scope at the API and data-access layers.",
+    "acceptance": "Attempt cross-project reads and unauthorized mutations directly through APIs and verify denial."
+  },
+  {
+    "id": "SEC-02",
+    "title": "Local attack surface",
+    "priority": "P0",
+    "owner": "Platform and assurance",
+    "requirement": "The system shall authenticate local clients and protect against cross-origin requests, host spoofing and unauthorized LAN access.",
+    "acceptance": "Attempt browser-based requests from an untrusted origin and verify commands cannot be issued."
+  },
+  {
+    "id": "SEC-03",
+    "title": "Protected secrets",
+    "priority": "P0",
+    "owner": "Platform and assurance",
+    "requirement": "The system shall encrypt sensitive records at rest and in transit, and protect keys and credentials with approved storage and rotation.",
+    "acceptance": "Rotate keys without losing historical evidence; verify encrypted storage and transport and absence of secrets in exports."
+  },
+  {
+    "id": "SEC-04",
+    "title": "Approved software",
+    "priority": "P0",
+    "owner": "Platform and assurance",
+    "requirement": "The system shall verify signed software packages and prohibit unapproved upgrades during active runs.",
+    "acceptance": "Offer a new release during a run and verify it cannot change the pinned execution environment."
+  },
+  {
+    "id": "SEC-05",
+    "title": "Privileged activity",
+    "priority": "P0",
+    "owner": "Platform and assurance",
+    "requirement": "The system shall record administrator actions and restrict modification or deletion of authoritative evidence.",
+    "acceptance": "Attempt an administrative edit and verify prevention or a detectable controlled amendment."
+  },
+  {
+    "id": "SEC-06",
+    "title": "Worker containment",
+    "priority": "P0",
+    "owner": "Platform and assurance",
+    "requirement": "The system shall apply least-privilege filesystem, network and device access to test workers.",
+    "acceptance": "Use a test worker to attempt unauthorized file, network and device access and verify rejection."
+  },
+  {
+    "id": "SEC-07",
+    "title": "Assurance record",
+    "priority": "P0",
+    "owner": "Platform and assurance",
+    "requirement": "The system shall maintain requirements-to-test traceability, dependency inventory, known limitations and reviewed release evidence.",
+    "acceptance": "Audit a candidate release and resolve every P0 requirement to recorded acceptance evidence."
+  },
+  {
+    "id": "SEC-08",
+    "title": "Environment separation",
+    "priority": "P0",
+    "owner": "Platform and assurance",
+    "requirement": "The system shall distinguish simulation, development, engineering and flight operation in access rules and stored records.",
+    "acceptance": "Attempt to present simulated measurements as flight evidence and verify the provenance is unmistakable."
+  },
+  {
+    "id": "OPS-01",
+    "title": "Operational display",
+    "priority": "P0",
+    "owner": "Platform operations and user interface",
+    "requirement": "The system shall show article identity, revision, active step, ownership, hardware status, local persistence and sync backlog.",
+    "acceptance": "An operator identifies the authoritative run and unsynchronized evidence without navigating away."
+  },
+  {
+    "id": "OPS-02",
+    "title": "Clear actions",
+    "priority": "P0",
+    "owner": "Platform operations and user interface",
+    "requirement": "The system shall distinguish hold, resume, abort, skip, repeat and emergency safing with appropriate role and confirmation rules.",
+    "acceptance": "Run a witnessed usability exercise and verify no ambiguous button initiates a repeat or closes a failed step."
+  },
+  {
+    "id": "OPS-03",
+    "title": "Accessible interaction",
+    "priority": "P1",
+    "owner": "Platform operations and user interface",
+    "requirement": "The system shall support keyboard operation, readable contrast, non-color status cues and documented supported browsers.",
+    "acceptance": "Complete a procedure without a mouse and verify errors remain identifiable without color."
+  },
+  {
+    "id": "OPS-04",
+    "title": "Reference load",
+    "priority": "P0",
+    "owner": "Platform operations and user interface",
+    "requirement": "The system shall meet proposed targets of 10,000 steps per procedure and 100 structured events per second per station.",
+    "acceptance": "Run the reference load with a proposed p95 local action acknowledgment below 500 ms, excluding instrument latency."
+  },
+  {
+    "id": "OPS-05",
+    "title": "Startup and recovery",
+    "priority": "P0",
+    "owner": "Platform operations and user interface",
+    "requirement": "The system shall restore the UI and a truthful recovered run state within a proposed 60 seconds on approved hardware.",
+    "acceptance": "Restart a loaded station; verify readiness timing without automatically resuming hardware actions."
+  },
+  {
+    "id": "OPS-06",
+    "title": "Observability",
+    "priority": "P0",
+    "owner": "Platform operations and user interface",
+    "requirement": "The system shall expose correlated health, logs and metrics without treating diagnostic telemetry as the evidence record.",
+    "acceptance": "Disable telemetry export and verify execution evidence remains complete and locally inspectable."
+  },
+  {
+    "id": "OPS-07",
+    "title": "Install and upgrade",
+    "priority": "P0",
+    "owner": "Platform operations and user interface",
+    "requirement": "The system shall support reproducible offline installation, controlled schema migration and rollback or forward-recovery procedures.",
+    "acceptance": "Install on a clean isolated host and rehearse a failed upgrade without losing historical records."
+  },
+  {
+    "id": "OPS-08",
+    "title": "Capacity and support",
+    "priority": "P0",
+    "owner": "Platform operations and user interface",
+    "requirement": "The system shall document storage sizing, backups, restore, instrument compatibility and incident recovery for operators.",
+    "acceptance": "A second engineer follows the runbook to restore a station and identify an unresolved command outcome."
+  }
+]
