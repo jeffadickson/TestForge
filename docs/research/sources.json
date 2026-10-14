@@ -425,5 +425,103 @@
     "url": "https://www.epsilon3.io/test-management",
     "note": "Test plans, cases, points, requirements and hazards.",
     "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S62",
+    "title": "NI process models",
+    "url": "https://www.ni.com/docs/en-US/bundle/teststand/page/process-models.html",
+    "note": "Sequential, parallel and batch policies separated from test-specific sequences.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S63",
+    "title": "NI callback architecture",
+    "url": "https://www.ni.com/en/support/documentation/supplemental/07/using-callbacks-in-ni-teststand.html",
+    "note": "Model, engine and front-end callback scope and invocation.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S64",
+    "title": "NI Python adapter",
+    "url": "https://www.ni.com/docs/en-US/bundle/teststand/page/python-adapter.html",
+    "note": "Out-of-process CPython calls, conversion, object references and environment configuration.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S65",
+    "title": "NI Python interpreter sessions",
+    "url": "https://www.ni.com/docs/en-US/bundle/teststand/page/python-interpreter-sessions.html",
+    "note": "Global, execution, thread and object-reference session scope.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S66",
+    "title": "NI Python adapter limitations",
+    "url": "https://www.ni.com/docs/en-US/bundle/teststand/page/python-adapter-known-limitations.html",
+    "note": "Argument, return-value and data conversion limitations; confirm pinned release.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S67",
+    "title": "NI termination and abort",
+    "url": "https://www.ni.com/docs/en-US/bundle/teststand/page/terminating-and-aborting-executions.html",
+    "note": "Cleanup semantics and dependence on running code modules returning control.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S68",
+    "title": "NI sequence analyzer",
+    "url": "https://www.ni.com/docs/en-US/bundle/teststand/page/teststand-sequence-analyzer.html",
+    "note": "Predeployment analysis and extensible rule checks.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S69",
+    "title": "NI deployment best practices",
+    "url": "https://www.ni.com/en/support/documentation/supplemental/08/teststand-system-deployment-best-practices.html",
+    "note": "Dependency discovery limits, configuration, runtimes and deployment packaging.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S70",
+    "title": "NI managing users",
+    "url": "https://www.ni.com/docs/en-US/bundle/teststand/page/managing-users.html",
+    "note": "User privileges and explicit boundary between user manager and system security.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S71",
+    "title": "NI TestStand API architecture",
+    "url": "https://www.ni.com/en/support/documentation/supplemental/08/programming-with-the-teststand-api.html",
+    "note": "Presentation/engine separation and custom interfaces.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S72",
+    "title": "NI step execution order",
+    "url": "https://www.ni.com/docs/en-US/bundle/teststand/page/step-execution.html",
+    "note": "Preconditions, callbacks, module execution, forced modes and result handling.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S73",
+    "title": "NI parallel testing",
+    "url": "https://www.ni.com/en/shop/electronic-test-instrumentation/application-software-for-electronic-test-and-instrumentation-category/what-is-teststand/benefits-of-parallel-testing.html",
+    "note": "Resource sharing and synchronization primitives.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S74",
+    "title": "NI TestStand release changes",
+    "url": "https://www.ni.com/docs/en-US/bundle/teststand/page/new-features-and-changes.html",
+    "note": "2026 Q3 Linux deployment; other release-specific runtime changes. Pin release before use.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S75",
+    "title": "NI Linux deployment configuration",
+    "url": "https://www.ni.com/docs/gd-GB/bundle/teststand/page/creating-a-linux-deployment.html",
+    "note": "Documents disabled database logging and offline-result plugins in this deployment mode; English locale fetch failed, alternate NI locale served English content.",
+    "reviewed": "2026-10-14"
   }
 ]

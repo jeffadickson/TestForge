@@ -272,3 +272,9 @@ The [evaluation plan](EVALUATION_PLAN.md) and [backlog](../BACKLOG.md) turn thes
 ## Epsilon3 focused follow-up — 14 October 2026
 
 The [deep dive](EPSILON3_DEEP_DIVE.md) examines the 2.0 announcement, recent and historical changelogs, and API semantics. It adds 26 proposed requirements covering qualifications, granular signatures, constrained holds, cross-run changes, default-value provenance, offline capability declarations and integration integrity. The [18-case evaluation script](EPSILON3_EVALUATION.md) separates documented feature claims from behavior that still needs demonstration. This supplements the broader market assessment; it does not establish a completed vendor evaluation.
+
+## TestStand focused follow-up — 14 October 2026
+
+The [TestStand deep dive](TESTSTAND_DEEP_DIVE.md) adds 14 traceable requirements and a [16-case evaluation](TESTSTAND_EVALUATION.md). The Windows trial description above concerns the development download: NI now documents Windows-developed systems deployed to supported Linux targets in 2026 Q3. The Linux configuration guide disables built-in Database Logging and Offline Result Processing plugins in that deployment mode. Evaluate platform capabilities separately; neither Windows-only assumptions nor complete Linux parity are justified. [S74, S75]
+
+The study also distinguishes cleanup from physical safing, deferred processing from full offline workflow, and user-manager privileges from system security. TestStand remains a candidate engine/backend and benchmark; no runtime or vendor installation was tested.

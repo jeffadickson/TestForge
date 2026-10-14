@@ -75,3 +75,9 @@ Seven disconnected days, 10,000 procedure steps, 100 structured events/second pe
 The [deep dive](../research/EPSILON3_DEEP_DIVE.md) adds proposed contracts without choosing a vendor implementation. Extend the procedure package with reusable-content provenance, explicit default origins, branch rules and offline capability dependencies. Extend the event model with row/content evidence identities, review rounds, qualification snapshots, scoped holds, per-run change adoption and effective article configuration.
 
 The local runtime evaluates qualification and readiness at action time. Remote issue resolution can satisfy a workflow predicate but cannot directly resume hardware commands. Consequential mutations require expected revisions. Administrative workflows use durable deduplicated obligations; their workers cannot impersonate humans or directly command instruments. These are proposed responsibilities, not implemented services.
+
+## TestStand-derived execution contracts
+
+The [TestStand study](../research/TESTSTAND_DEEP_DIVE.md) refines the proposal with a versioned execution policy separate from test-specific content, deterministic lifecycle hooks, recorded cleanup obligations, explicit worker session scope and typed call contracts. Required result sinks track delivery independently from measured outcomes. Deferred jobs retain input/processor provenance and idempotent identities.
+
+Parallel cohorts and instrument-set scheduling remain separately scoped capabilities. Dependency closure includes dynamic resources, and a platform capability manifest must reject missing required sinks or drivers before admission. If TestStand is selected as an optional backend, its adapter must define one hardware-command authority and expose lifecycle/outcome evidence to the local TestForge service; backend selection remains open.

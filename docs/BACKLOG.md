@@ -78,3 +78,12 @@ Station language/engine, central framework, selected workflow engine, deployment
 - [ ] Obtain the offline action matrix, middleware topology, supported driver list and export sample.
 - [ ] Resolve QA qualification validity offline and local hardware-resume policy.
 - [ ] Obtain a scoped quote and document source/extension rights before a buy/build decision.
+
+## TestStand research follow-up
+
+- [x] Review NI execution, Python, deployment, result-processing and security documentation.
+- [x] Add 14 source-linked requirements and 16 focused evaluation scenarios.
+- [ ] Pin a trial release and run T01–T16 with simulator and representative non-flight instrument.
+- [ ] Confirm supported browser interface and local multi-user QA topology.
+- [ ] Qualify platform-specific sinks and drivers, including the documented Linux restrictions.
+- [ ] Compare the same workload in the open-engine candidates before selecting a backend.

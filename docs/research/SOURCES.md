@@ -367,3 +367,87 @@ Versioned run/procedure interfaces; API behavior is not a hardware durability gu
 [Epsilon3 test management](https://www.epsilon3.io/test-management)
 
 Test plans, cases, points, requirements and hazards. Reviewed 2026-10-14.
+
+## S62 — NI process models
+
+[NI process models](https://www.ni.com/docs/en-US/bundle/teststand/page/process-models.html)
+
+Sequential, parallel and batch policies separated from test-specific sequences. Reviewed 2026-10-14.
+
+## S63 — NI callback architecture
+
+[NI callback architecture](https://www.ni.com/en/support/documentation/supplemental/07/using-callbacks-in-ni-teststand.html)
+
+Model, engine and front-end callback scope and invocation. Reviewed 2026-10-14.
+
+## S64 — NI Python adapter
+
+[NI Python adapter](https://www.ni.com/docs/en-US/bundle/teststand/page/python-adapter.html)
+
+Out-of-process CPython calls, conversion, object references and environment configuration. Reviewed 2026-10-14.
+
+## S65 — NI Python interpreter sessions
+
+[NI Python interpreter sessions](https://www.ni.com/docs/en-US/bundle/teststand/page/python-interpreter-sessions.html)
+
+Global, execution, thread and object-reference session scope. Reviewed 2026-10-14.
+
+## S66 — NI Python adapter limitations
+
+[NI Python adapter limitations](https://www.ni.com/docs/en-US/bundle/teststand/page/python-adapter-known-limitations.html)
+
+Argument, return-value and data conversion limitations; confirm pinned release. Reviewed 2026-10-14.
+
+## S67 — NI termination and abort
+
+[NI termination and abort](https://www.ni.com/docs/en-US/bundle/teststand/page/terminating-and-aborting-executions.html)
+
+Cleanup semantics and dependence on running code modules returning control. Reviewed 2026-10-14.
+
+## S68 — NI sequence analyzer
+
+[NI sequence analyzer](https://www.ni.com/docs/en-US/bundle/teststand/page/teststand-sequence-analyzer.html)
+
+Predeployment analysis and extensible rule checks. Reviewed 2026-10-14.
+
+## S69 — NI deployment best practices
+
+[NI deployment best practices](https://www.ni.com/en/support/documentation/supplemental/08/teststand-system-deployment-best-practices.html)
+
+Dependency discovery limits, configuration, runtimes and deployment packaging. Reviewed 2026-10-14.
+
+## S70 — NI managing users
+
+[NI managing users](https://www.ni.com/docs/en-US/bundle/teststand/page/managing-users.html)
+
+User privileges and explicit boundary between user manager and system security. Reviewed 2026-10-14.
+
+## S71 — NI TestStand API architecture
+
+[NI TestStand API architecture](https://www.ni.com/en/support/documentation/supplemental/08/programming-with-the-teststand-api.html)
+
+Presentation/engine separation and custom interfaces. Reviewed 2026-10-14.
+
+## S72 — NI step execution order
+
+[NI step execution order](https://www.ni.com/docs/en-US/bundle/teststand/page/step-execution.html)
+
+Preconditions, callbacks, module execution, forced modes and result handling. Reviewed 2026-10-14.
+
+## S73 — NI parallel testing
+
+[NI parallel testing](https://www.ni.com/en/shop/electronic-test-instrumentation/application-software-for-electronic-test-and-instrumentation-category/what-is-teststand/benefits-of-parallel-testing.html)
+
+Resource sharing and synchronization primitives. Reviewed 2026-10-14.
+
+## S74 — NI TestStand release changes
+
+[NI TestStand release changes](https://www.ni.com/docs/en-US/bundle/teststand/page/new-features-and-changes.html)
+
+2026 Q3 Linux deployment; other release-specific runtime changes. Pin release before use. Reviewed 2026-10-14.
+
+## S75 — NI Linux deployment configuration
+
+[NI Linux deployment configuration](https://www.ni.com/docs/gd-GB/bundle/teststand/page/creating-a-linux-deployment.html)
+
+Documents disabled database logging and offline-result plugins in this deployment mode; English locale fetch failed, alternate NI locale served English content. Reviewed 2026-10-14.

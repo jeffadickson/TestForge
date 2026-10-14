@@ -7,22 +7,27 @@ A proposed browser-based framework for controlled flight-hardware testing: manua
 ## Start here
 
 - [In-depth market research and build-versus-buy assessment](docs/research/MARKET_RESEARCH.md)
-- [122 proposed requirements and acceptance checks](docs/requirements/REQUIREMENTS.md)
+- [136 proposed requirements and acceptance checks](docs/requirements/REQUIREMENTS.md)
 - [Architecture and execution/reconciliation boundaries](docs/architecture/ARCHITECTURE.md)
 - [Vendor and engine evaluation plan](docs/research/EVALUATION_PLAN.md)
 - [Implementation and research backlog](docs/BACKLOG.md)
-- [61-entry source register](docs/research/SOURCES.md)
+- [75-entry source register](docs/research/SOURCES.md)
 - [COSMOS repository inspection](docs/research/COSMOS_INSPECTION.md)
 - [Historical Loom v0.12 inspection](docs/research/LOOM_V0.12_INSPECTION.md)
 
 - [Epsilon3 / 2.0 deep dive and requirements rationale](docs/research/EPSILON3_DEEP_DIVE.md)
 - [Epsilon3 evaluation script: 18 additional scenarios](docs/research/EPSILON3_EVALUATION.md)
 
+- [NI TestStand deep dive](docs/research/TESTSTAND_DEEP_DIVE.md)
+- [TestStand evaluation: 16 focused scenarios](docs/research/TESTSTAND_EVALUATION.md)
+
 ## Current direction
 
 Evaluate Epsilon3 and Nominal as commercial benchmarks; TestStand and COSMOS as automation/operations references; OpenTAP and OpenHTF as reusable execution engines. Central framework selection remains open. Browser UI, local-first evidence and separate execution/analysis closure are architectural proposals with explicit acceptance gates.
 
 The Epsilon3 deep dive adds 26 traceable requirements to the original 96 and distinguishes documented features from unverified offline/recovery behavior.
+
+The TestStand follow-up adds another 14 requirements and documents the 2026 Q3 Linux deployment path and its result-processing restrictions.
 
 The expanded market assessment adds Nominal to the original shortlist. A claim that offline edge test execution is absent from the market would be incorrect. The intended distinction is inspectable evidence, recovery, approval and integration behavior.
 

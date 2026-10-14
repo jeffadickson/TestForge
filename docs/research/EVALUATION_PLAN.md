@@ -69,3 +69,7 @@ For each hard gate record pass / fail / not demonstrated / not applicable with r
 ## Epsilon3 detailed campaign
 
 Use [E01–E18](EPSILON3_EVALUATION.md) alongside the original V01–V18 gates. These additional scenarios map to the expanded catalog and focus on signatures, qualifications, changing runs, integration failure and offline execution. None has been executed.
+
+## TestStand detailed campaign
+
+Use [T01–T16](TESTSTAND_EVALUATION.md) alongside the existing acceptance campaigns. Include the actual Python/VISA stack and Windows versus proposed Linux capability differences. TestStand 2026 Q3 supports a documented Linux deployment path, but its configuration guide disables built-in database logging and offline result-processing plugins for that mode; evaluate substitutes explicitly. [S74, S75]

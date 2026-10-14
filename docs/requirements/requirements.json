@@ -167,6 +167,40 @@
     "origin": "Epsilon3 deep dive 2026-10-14"
   },
   {
+    "id": "PROC-15",
+    "title": "Versioned execution policy",
+    "priority": "P0",
+    "owner": "Procedure service",
+    "requirement": "The system shall bind each run to a released execution-policy revision that defines shared setup, article admission, test invocation, result handling and completion gates separately from test-specific steps.",
+    "acceptance": "Run two procedures under one policy; revise the policy and verify earlier run packages retain the original policy and its gates.",
+    "sources": [
+      "S62"
+    ],
+    "related": [
+      "PROC-02",
+      "EXEC-01"
+    ],
+    "basis": "Derived architectural requirement: common station behavior is part of the approved execution definition.",
+    "origin": "NI TestStand deep dive 2026-10-14"
+  },
+  {
+    "id": "PROC-16",
+    "title": "Preflight rule analysis",
+    "priority": "P0",
+    "owner": "Procedure service",
+    "requirement": "The system shall run a versioned set of structural and contract checks before release and retain machine-readable findings with dispositions of any waivers.",
+    "acceptance": "Seed missing modules, incompatible parameter types, an undeclared resource and an unresolved cleanup path; verify release blocks and findings identify stable step IDs.",
+    "sources": [
+      "S68"
+    ],
+    "related": [
+      "PROC-05",
+      "SEC-07"
+    ],
+    "basis": "Derived refinement: validation needs inspectable rule provenance and actionable diagnostics; it is not proof of physical safety.",
+    "origin": "NI TestStand deep dive 2026-10-14"
+  },
+  {
     "id": "EXEC-01",
     "title": "Run identity",
     "priority": "P0",
@@ -282,6 +316,61 @@
     ],
     "basis": "Derived refinement; measured task duration alone does not prove a valid physical soak.",
     "origin": "Epsilon3 deep dive 2026-10-14"
+  },
+  {
+    "id": "EXEC-12",
+    "title": "Lifecycle extension contract",
+    "priority": "P0",
+    "owner": "Station runtime",
+    "requirement": "The system shall declare the order, scope, failure handling and privileges of lifecycle hooks and include their resolved implementations in the run package.",
+    "acceptance": "Configure station and procedure hooks for the same event; verify deterministic order, no hidden duplicate action and explicit handling of a failed hook.",
+    "sources": [
+      "S63",
+      "S72"
+    ],
+    "related": [
+      "PROC-02",
+      "EXEC-02"
+    ],
+    "basis": "Derived refinement: extension hooks must not silently change execution or suppress mandatory gates.",
+    "origin": "NI TestStand deep dive 2026-10-14"
+  },
+  {
+    "id": "EXEC-13",
+    "title": "Cleanup evidence",
+    "priority": "P0",
+    "owner": "Station runtime",
+    "requirement": "The system shall record required cleanup obligations as resources are acquired, their attempted actions and outcomes, and unresolved obligations after abnormal termination.",
+    "acceptance": "Fail midway through setup and again during cleanup; verify only applicable obligations are attempted and an unconfirmed safe state remains unresolved.",
+    "sources": [
+      "S67"
+    ],
+    "related": [
+      "EXEC-05",
+      "HW-06",
+      "HW-07"
+    ],
+    "basis": "Derived requirement: termination policy does not guarantee successful physical safing or cleanup after loss of power.",
+    "origin": "NI TestStand deep dive 2026-10-14"
+  },
+  {
+    "id": "EXEC-14",
+    "title": "Parallel cohort control",
+    "priority": "P1",
+    "owner": "Station runtime",
+    "requirement": "The system shall give each concurrent article its own execution identity and define barrier membership, timeout, withdrawal and shared-action attribution for coordinated cohorts.",
+    "acceptance": "Run three articles through a shared chamber action; remove one at a barrier and verify bounded disposition for all three without assigning its evidence to the survivors.",
+    "sources": [
+      "S62",
+      "S73"
+    ],
+    "related": [
+      "EXEC-01",
+      "EXEC-07",
+      "PROC-13"
+    ],
+    "basis": "Derived distinction between coordinated multi-article execution and repeated steps within one run.",
+    "origin": "NI TestStand deep dive 2026-10-14"
   },
   {
     "id": "AUTH-01",
@@ -617,6 +706,59 @@
     "origin": "Epsilon3 deep dive 2026-10-14"
   },
   {
+    "id": "HW-11",
+    "title": "Worker session lifecycle",
+    "priority": "P0",
+    "owner": "Workers and instrument gateway",
+    "requirement": "The system shall declare worker session scope and reset rules, reject stale handles after restart and prohibit undeclared cross-run interpreter state.",
+    "acceptance": "Set module state in run A, execute run B, then restart the worker; verify isolation/reset policy and rejection of old instrument or object handles.",
+    "sources": [
+      "S64",
+      "S65"
+    ],
+    "related": [
+      "HW-01",
+      "HW-02"
+    ],
+    "basis": "Derived refinement: separate processes alone do not define session lifetime or eliminate shared mutable state.",
+    "origin": "NI TestStand deep dive 2026-10-14"
+  },
+  {
+    "id": "HW-12",
+    "title": "Module call contract",
+    "priority": "P0",
+    "owner": "Workers and instrument gateway",
+    "requirement": "The system shall validate versioned module input/output schemas and persist the resolved arguments, required outputs and conversion failures for each call.",
+    "acceptance": "Exercise large integers, nonfinite readings, empty arrays, missing required returns and a changed function signature; verify explicit outcomes without silent truncation or missing required evidence.",
+    "sources": [
+      "S64",
+      "S66"
+    ],
+    "related": [
+      "HW-08",
+      "DATA-01"
+    ],
+    "basis": "Derived interoperability requirement; a successful language call is not proof that required evidence was captured.",
+    "origin": "NI TestStand deep dive 2026-10-14"
+  },
+  {
+    "id": "HW-13",
+    "title": "Shared instrument scheduling",
+    "priority": "P1",
+    "owner": "Workers and instrument gateway",
+    "requirement": "The system shall schedule declared instrument resource sets with bounded waits and a documented deadlock policy while retaining ownership until physical outcomes are resolved.",
+    "acceptance": "Request two instruments in opposite orders from competing runs and crash one holder; verify no indefinite wait or premature reassignment of an uncertain resource.",
+    "sources": [
+      "S73"
+    ],
+    "related": [
+      "EXEC-07",
+      "SYNC-06"
+    ],
+    "basis": "Derived refinement: an in-process mutex is insufficient for station recovery and conflicting resource sets.",
+    "origin": "NI TestStand deep dive 2026-10-14"
+  },
+  {
     "id": "CAL-01",
     "title": "Asset chain",
     "priority": "P0",
@@ -778,6 +920,43 @@
     ],
     "basis": "Derived refinement: visual similarity is not proof of interchangeable evidence.",
     "origin": "Epsilon3 deep dive 2026-10-14"
+  },
+  {
+    "id": "DATA-10",
+    "title": "Independent result sink state",
+    "priority": "P0",
+    "owner": "Evidence service",
+    "requirement": "The system shall track required and optional result sinks separately, retaining local evidence and marking delivery failures without rewriting the measured outcome.",
+    "acceptance": "Pass the measurement while the central database and report generator fail; verify the measured pass survives, delivery faults remain visible and closure is blocked where required.",
+    "sources": [
+      "S02",
+      "S03"
+    ],
+    "related": [
+      "DATA-08",
+      "SYNC-01",
+      "CLOSE-05"
+    ],
+    "basis": "Derived refinement: reporting failure, test failure and final acceptance are separate states.",
+    "origin": "NI TestStand deep dive 2026-10-14"
+  },
+  {
+    "id": "DATA-11",
+    "title": "Deferred processing provenance",
+    "priority": "P0",
+    "owner": "Evidence service",
+    "requirement": "The system shall version deferred result-processing jobs with input digests, processor/configuration revisions, attempt history and idempotent output identity.",
+    "acceptance": "Reprocess the same record twice and then with a revised report template; verify no duplicate logical ingest and distinguish both report versions without changing raw evidence.",
+    "sources": [
+      "S03"
+    ],
+    "related": [
+      "DATA-02",
+      "SYNC-02",
+      "CLOSE-03"
+    ],
+    "basis": "Derived refinement: tracking processed files alone does not establish replay-safe, reproducible downstream records.",
+    "origin": "NI TestStand deep dive 2026-10-14"
   },
   {
     "id": "OFF-01",
@@ -1111,6 +1290,24 @@
     "origin": "Epsilon3 deep dive 2026-10-14"
   },
   {
+    "id": "SEC-11",
+    "title": "Debug action provenance",
+    "priority": "P0",
+    "owner": "Platform and assurance",
+    "requirement": "The system shall restrict forced outcomes, execution-pointer changes and variable edits to authorized engineering operation and label resulting evidence so it cannot satisfy flight acceptance silently.",
+    "acceptance": "Force a pass and alter a variable during debugging; verify attributable events and rejection of the modified run as unqualified flight acceptance evidence.",
+    "sources": [
+      "S72",
+      "S70"
+    ],
+    "related": [
+      "SEC-08",
+      "CHG-04"
+    ],
+    "basis": "Derived control for powerful test-executive debugging facilities; engineering overrides are not measured passes.",
+    "origin": "NI TestStand deep dive 2026-10-14"
+  },
+  {
     "id": "OPS-01",
     "title": "Operational display",
     "priority": "P0",
@@ -1225,5 +1422,58 @@
     ],
     "basis": "Derived reliability requirement for trigger/condition/action automation.",
     "origin": "Epsilon3 deep dive 2026-10-14"
+  },
+  {
+    "id": "OPS-12",
+    "title": "Dependency closure verification",
+    "priority": "P0",
+    "owner": "Platform operations and user interface",
+    "requirement": "The system shall require explicit declaration and offline availability checks for dynamically loaded code, data, drivers and configuration in addition to statically discovered dependencies.",
+    "acceptance": "Install on a clean isolated station after removing a dynamically selected calibration file or native library; verify readiness fails before commanding hardware.",
+    "sources": [
+      "S69"
+    ],
+    "related": [
+      "OFF-02",
+      "OPS-07"
+    ],
+    "basis": "Derived deployment refinement: static dependency discovery cannot find every runtime-selected resource.",
+    "origin": "NI TestStand deep dive 2026-10-14"
+  },
+  {
+    "id": "OPS-13",
+    "title": "Platform capability qualification",
+    "priority": "P0",
+    "owner": "Platform operations and user interface",
+    "requirement": "The system shall publish and enforce a versioned capability matrix for each supported OS, runtime, adapter, driver and deployment mode, rejecting unsupported required features before installation or run admission.",
+    "acceptance": "Offer a package requiring an unavailable result sink or driver on one target platform; verify explicit rejection rather than silently disabled evidence processing.",
+    "sources": [
+      "S74",
+      "S75"
+    ],
+    "related": [
+      "OFF-09",
+      "OPS-07"
+    ],
+    "basis": "Derived requirement prompted by platform-specific deployment differences; no cross-platform parity is presumed.",
+    "origin": "NI TestStand deep dive 2026-10-14"
+  },
+  {
+    "id": "OPS-14",
+    "title": "Correlated execution diagnostics",
+    "priority": "P1",
+    "owner": "Platform operations and user interface",
+    "requirement": "The system shall expose run, thread, worker and nested-call context with step identities and correlated diagnostic events while keeping diagnostics distinct from authoritative evidence.",
+    "acceptance": "Interleave two nested parallel runs and a worker failure; reconstruct the affected call path without assigning another run's logs or results to it.",
+    "sources": [
+      "S71",
+      "S72"
+    ],
+    "related": [
+      "OPS-06",
+      "HW-08"
+    ],
+    "basis": "Derived debuggability requirement for layered and concurrent execution.",
+    "origin": "NI TestStand deep dive 2026-10-14"
   }
 ]

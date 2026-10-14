@@ -1,6 +1,6 @@
 # TestForge requirements baseline
 
-122 proposed requirements, dated 2026-10-14. None is declared implemented or verified. P0: required before a controlled flight-hardware pilot. P1: full operational scope, staged only when explicitly excluded from the pilot. Numerical targets are proposals. Generated from [requirements.json](requirements.json); edit that catalog and rerun `python3 tools/render_requirements.py`.
+136 proposed requirements, dated 2026-10-14. None is declared implemented or verified. P0: required before a controlled flight-hardware pilot. P1: full operational scope, staged only when explicitly excluded from the pilot. Numerical targets are proposals. Generated from [requirements.json](requirements.json); edit that catalog and rerun `python3 tools/render_requirements.py`.
 
 See the [evaluation plan](../research/EVALUATION_PLAN.md) for combined campaigns and [architecture](../architecture/ARCHITECTURE.md) for responsibility boundaries.
 
@@ -126,6 +126,30 @@ The system shall version the planned combinations of test points, configurations
 
 **Refines:** PROC-08, CLOSE-06.
 
+### PROC-15 — Versioned execution policy (P0)
+
+The system shall bind each run to a released execution-policy revision that defines shared setup, article admission, test invocation, result handling and completion gates separately from test-specific steps.
+
+**Acceptance:** Run two procedures under one policy; revise the policy and verify earlier run packages retain the original policy and its gates.
+
+**Basis:** Derived architectural requirement: common station behavior is part of the approved execution definition.
+
+**Sources:** S62 (see [source register](../research/SOURCES.md)).
+
+**Refines:** PROC-02, EXEC-01.
+
+### PROC-16 — Preflight rule analysis (P0)
+
+The system shall run a versioned set of structural and contract checks before release and retain machine-readable findings with dispositions of any waivers.
+
+**Acceptance:** Seed missing modules, incompatible parameter types, an undeclared resource and an unresolved cleanup path; verify release blocks and findings identify stable step IDs.
+
+**Basis:** Derived refinement: validation needs inspectable rule provenance and actionable diagnostics; it is not proof of physical safety.
+
+**Sources:** S68 (see [source register](../research/SOURCES.md)).
+
+**Refines:** PROC-05, SEC-07.
+
 ## EXEC — Station runtime
 
 ### EXEC-01 — Run identity (P0)
@@ -211,6 +235,42 @@ The system shall define elapsed, active and hold time separately and record the 
 **Sources:** S57, S59 (see [source register](../research/SOURCES.md)).
 
 **Refines:** DATA-04, PROC-04.
+
+### EXEC-12 — Lifecycle extension contract (P0)
+
+The system shall declare the order, scope, failure handling and privileges of lifecycle hooks and include their resolved implementations in the run package.
+
+**Acceptance:** Configure station and procedure hooks for the same event; verify deterministic order, no hidden duplicate action and explicit handling of a failed hook.
+
+**Basis:** Derived refinement: extension hooks must not silently change execution or suppress mandatory gates.
+
+**Sources:** S63, S72 (see [source register](../research/SOURCES.md)).
+
+**Refines:** PROC-02, EXEC-02.
+
+### EXEC-13 — Cleanup evidence (P0)
+
+The system shall record required cleanup obligations as resources are acquired, their attempted actions and outcomes, and unresolved obligations after abnormal termination.
+
+**Acceptance:** Fail midway through setup and again during cleanup; verify only applicable obligations are attempted and an unconfirmed safe state remains unresolved.
+
+**Basis:** Derived requirement: termination policy does not guarantee successful physical safing or cleanup after loss of power.
+
+**Sources:** S67 (see [source register](../research/SOURCES.md)).
+
+**Refines:** EXEC-05, HW-06, HW-07.
+
+### EXEC-14 — Parallel cohort control (P1)
+
+The system shall give each concurrent article its own execution identity and define barrier membership, timeout, withdrawal and shared-action attribution for coordinated cohorts.
+
+**Acceptance:** Run three articles through a shared chamber action; remove one at a barrier and verify bounded disposition for all three without assigning its evidence to the survivors.
+
+**Basis:** Derived distinction between coordinated multi-article execution and repeated steps within one run.
+
+**Sources:** S62, S73 (see [source register](../research/SOURCES.md)).
+
+**Refines:** EXEC-01, EXEC-07, PROC-13.
 
 ## AUTH — Identity and approval service
 
@@ -458,6 +518,42 @@ The system shall evaluate telemetry-based acceptance using a versioned rule defi
 
 **Refines:** DATA-01, DATA-04, HW-08.
 
+### HW-11 — Worker session lifecycle (P0)
+
+The system shall declare worker session scope and reset rules, reject stale handles after restart and prohibit undeclared cross-run interpreter state.
+
+**Acceptance:** Set module state in run A, execute run B, then restart the worker; verify isolation/reset policy and rejection of old instrument or object handles.
+
+**Basis:** Derived refinement: separate processes alone do not define session lifetime or eliminate shared mutable state.
+
+**Sources:** S64, S65 (see [source register](../research/SOURCES.md)).
+
+**Refines:** HW-01, HW-02.
+
+### HW-12 — Module call contract (P0)
+
+The system shall validate versioned module input/output schemas and persist the resolved arguments, required outputs and conversion failures for each call.
+
+**Acceptance:** Exercise large integers, nonfinite readings, empty arrays, missing required returns and a changed function signature; verify explicit outcomes without silent truncation or missing required evidence.
+
+**Basis:** Derived interoperability requirement; a successful language call is not proof that required evidence was captured.
+
+**Sources:** S64, S66 (see [source register](../research/SOURCES.md)).
+
+**Refines:** HW-08, DATA-01.
+
+### HW-13 — Shared instrument scheduling (P1)
+
+The system shall schedule declared instrument resource sets with bounded waits and a documented deadlock policy while retaining ownership until physical outcomes are resolved.
+
+**Acceptance:** Request two instruments in opposite orders from competing runs and crash one holder; verify no indefinite wait or premature reassignment of an uncertain resource.
+
+**Basis:** Derived refinement: an in-process mutex is insufficient for station recovery and conflicting resource sets.
+
+**Sources:** S73 (see [source register](../research/SOURCES.md)).
+
+**Refines:** EXEC-07, SYNC-06.
+
 ## CAL — Asset and reference adapters
 
 ### CAL-01 — Asset chain (P0)
@@ -581,6 +677,30 @@ The system shall show procedure revision, article configuration, calibration and
 **Sources:** S54 (see [source register](../research/SOURCES.md)).
 
 **Refines:** DATA-02, CLOSE-03.
+
+### DATA-10 — Independent result sink state (P0)
+
+The system shall track required and optional result sinks separately, retaining local evidence and marking delivery failures without rewriting the measured outcome.
+
+**Acceptance:** Pass the measurement while the central database and report generator fail; verify the measured pass survives, delivery faults remain visible and closure is blocked where required.
+
+**Basis:** Derived refinement: reporting failure, test failure and final acceptance are separate states.
+
+**Sources:** S02, S03 (see [source register](../research/SOURCES.md)).
+
+**Refines:** DATA-08, SYNC-01, CLOSE-05.
+
+### DATA-11 — Deferred processing provenance (P0)
+
+The system shall version deferred result-processing jobs with input digests, processor/configuration revisions, attempt history and idempotent output identity.
+
+**Acceptance:** Reprocess the same record twice and then with a revised report template; verify no duplicate logical ingest and distinguish both report versions without changing raw evidence.
+
+**Basis:** Derived refinement: tracking processed files alone does not establish replay-safe, reproducible downstream records.
+
+**Sources:** S03 (see [source register](../research/SOURCES.md)).
+
+**Refines:** DATA-02, SYNC-02, CLOSE-03.
 
 ## OFF — Local station runtime
 
@@ -830,6 +950,18 @@ The system shall identify service actions separately from human signatures and s
 
 **Refines:** AUTH-01, SEC-01, SEC-03.
 
+### SEC-11 — Debug action provenance (P0)
+
+The system shall restrict forced outcomes, execution-pointer changes and variable edits to authorized engineering operation and label resulting evidence so it cannot satisfy flight acceptance silently.
+
+**Acceptance:** Force a pass and alter a variable during debugging; verify attributable events and rejection of the modified run as unqualified flight acceptance evidence.
+
+**Basis:** Derived control for powerful test-executive debugging facilities; engineering overrides are not measured passes.
+
+**Sources:** S72, S70 (see [source register](../research/SOURCES.md)).
+
+**Refines:** SEC-08, CHG-04.
+
 ## OPS — Platform operations and user interface
 
 ### OPS-01 — Operational display (P0)
@@ -915,3 +1047,39 @@ The system shall version event-triggered administrative workflows and durably tr
 **Sources:** S51 (see [source register](../research/SOURCES.md)).
 
 **Refines:** SYNC-01, SYNC-02, CLOSE-08.
+
+### OPS-12 — Dependency closure verification (P0)
+
+The system shall require explicit declaration and offline availability checks for dynamically loaded code, data, drivers and configuration in addition to statically discovered dependencies.
+
+**Acceptance:** Install on a clean isolated station after removing a dynamically selected calibration file or native library; verify readiness fails before commanding hardware.
+
+**Basis:** Derived deployment refinement: static dependency discovery cannot find every runtime-selected resource.
+
+**Sources:** S69 (see [source register](../research/SOURCES.md)).
+
+**Refines:** OFF-02, OPS-07.
+
+### OPS-13 — Platform capability qualification (P0)
+
+The system shall publish and enforce a versioned capability matrix for each supported OS, runtime, adapter, driver and deployment mode, rejecting unsupported required features before installation or run admission.
+
+**Acceptance:** Offer a package requiring an unavailable result sink or driver on one target platform; verify explicit rejection rather than silently disabled evidence processing.
+
+**Basis:** Derived requirement prompted by platform-specific deployment differences; no cross-platform parity is presumed.
+
+**Sources:** S74, S75 (see [source register](../research/SOURCES.md)).
+
+**Refines:** OFF-09, OPS-07.
+
+### OPS-14 — Correlated execution diagnostics (P1)
+
+The system shall expose run, thread, worker and nested-call context with step identities and correlated diagnostic events while keeping diagnostics distinct from authoritative evidence.
+
+**Acceptance:** Interleave two nested parallel runs and a worker failure; reconstruct the affected call path without assigning another run's logs or results to it.
+
+**Basis:** Derived debuggability requirement for layered and concurrent execution.
+
+**Sources:** S71, S72 (see [source register](../research/SOURCES.md)).
+
+**Refines:** OPS-06, HW-08.
