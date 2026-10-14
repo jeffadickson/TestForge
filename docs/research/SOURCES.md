@@ -271,3 +271,99 @@ Instrument library candidate; driver/license audit not performed.
 [Epsilon3 plans](https://www.epsilon3.io/pricing)
 
 Deployment and seat model; obtain a scoped quote.
+
+## S46 — Epsilon3 2.0 announcement
+
+[Epsilon3 2.0 announcement](https://www.epsilon3.io/behind-the-console/epsilon3-2)
+
+Platform direction; an announcement is not a complete feature availability guarantee. Reviewed 2026-10-14.
+
+## S47 — Epsilon3 Connect announcement
+
+[Epsilon3 Connect announcement](https://www.epsilon3.io/behind-the-console/epsilon3connect)
+
+Distinguishes current cross-organization viewing from planned shared actions and portals. Reviewed 2026-10-14.
+
+## S48 — Epsilon3 changelog 106
+
+[Epsilon3 changelog 106](https://www.epsilon3.io/behind-the-console/epsilon3-changelog-106)
+
+Pause constraints and scoped inventory sharing; September 2026. Reviewed 2026-10-14.
+
+## S49 — Epsilon3 changelog 101
+
+[Epsilon3 changelog 101](https://www.epsilon3.io/behind-the-console/epsilon3-changelog-101)
+
+Block-level strict signoffs, pause reasons, custom fields and assembly changes. Reviewed 2026-10-14.
+
+## S50 — Epsilon3 changelog 96
+
+[Epsilon3 changelog 96](https://www.epsilon3.io/behind-the-console/epsilon3-changelog-96-role-based-permissions-require-skills-for-roles-human-resources-issues-insights-dynamic-item-detail-update)
+
+Project roles and skill-dependent permission validity. Reviewed 2026-10-14.
+
+## S51 — Epsilon3 changelog 95
+
+[Epsilon3 changelog 95](https://www.epsilon3.io/behind-the-console/epsilon3-changelog-95-import-wizard-workflows-procedure-templates-3d-cad-file-viewer)
+
+Word import, templates and trigger/condition/action workflows. Reviewed 2026-10-14.
+
+## S52 — Epsilon3 changelog 94
+
+[Epsilon3 changelog 94](https://www.epsilon3.io/behind-the-console/epsilon3-changelog-94-content-snippets-default-values-for-field-inputs-default-values-for-custom-fields)
+
+Reusable content, defaults and attachment download. Reviewed 2026-10-14.
+
+## S53 — Epsilon3 changelog 92
+
+[Epsilon3 changelog 92](https://www.epsilon3.io/behind-the-console/epsilon3-changelog-92-low-inventory-tracking-section-conditionals-conditionals-with-variables-sales-orders)
+
+Section and variable branching. Reviewed 2026-10-14.
+
+## S54 — Epsilon3 changelog 90
+
+[Epsilon3 changelog 90](https://www.epsilon3.io/behind-the-console/epsilon-changelog-90-tasks-compare-step-attachments-across-runs-revert-to-prior-procedure-version-november-2025)
+
+Tasks, historical attachment comparison and draft branching from an older version. Reviewed 2026-10-14.
+
+## S55 — Epsilon3 changelog 81
+
+[Epsilon3 changelog 81](https://www.epsilon3.io/behind-the-console/changelog-81-real-time-redline-command-auto-up-revision)
+
+Cross-run redline propagation and command-failure behavior. Reviewed 2026-10-14.
+
+## S56 — Epsilon3 changelog 62
+
+[Epsilon3 changelog 62](https://www.epsilon3.io/behind-the-console/epsilon3-changelog-62-revoke-table-signoffs-review-parts-duro-valispace)
+
+Signoff revocation and row-level signatures. Reviewed 2026-10-14.
+
+## S57 — Epsilon3 changelog 60
+
+[Epsilon3 changelog 60](https://www.epsilon3.io/behind-the-console/epsilon3-changelog-60-landing-page-multi-stage-review-step-durations-scrap)
+
+Sequential review and stage-level approval reset policy. Reviewed 2026-10-14.
+
+## S58 — Epsilon3 changelog 75
+
+[Epsilon3 changelog 75](https://www.epsilon3.io/behind-the-console/changelog-75-ai-procedure-generation-batch-steps)
+
+Offline enablement, batch iterations and camera capture; March 2025. Reviewed 2026-10-14.
+
+## S59 — Epsilon3 changelog 73
+
+[Epsilon3 changelog 73](https://www.epsilon3.io/behind-the-console/changelog-73-duration-based-conditionals-aboms-login-disclaimer)
+
+Duration branching and as-built genealogy; December 2024. Reviewed 2026-10-14.
+
+## S60 — Epsilon3 public API reference
+
+[Epsilon3 public API reference](https://docs.epsilon3.io/)
+
+Versioned run/procedure interfaces; API behavior is not a hardware durability guarantee. Reviewed 2026-10-14.
+
+## S61 — Epsilon3 test management
+
+[Epsilon3 test management](https://www.epsilon3.io/test-management)
+
+Test plans, cases, points, requirements and hazards. Reviewed 2026-10-14.

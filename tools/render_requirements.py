@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def render():
     requirements = json.loads((ROOT / 'docs/requirements/requirements.json').read_text())
     lines = ['# TestForge requirements baseline', '',
-             '96 proposed requirements, dated 2026-10-14. None is declared implemented or verified. '
+             f'{len(requirements)} proposed requirements, dated 2026-10-14. None is declared implemented or verified. '
              'P0: required before a controlled flight-hardware pilot. P1: full operational scope, '
              'staged only when explicitly excluded from the pilot. Numerical targets are proposals. '
              'Generated from [requirements.json](requirements.json); edit that catalog and rerun '
@@ -22,6 +22,9 @@ def render():
             previous = group
         lines.extend([f"### {r['id']} — {r['title']} ({r['priority']})", '',
                       r['requirement'], '', '**Acceptance:** ' + r['acceptance'], ''])
+        if r.get('sources'):
+            refs = ', '.join(r['sources'])
+            lines.extend(['**Basis:** ' + r['basis'], '', '**Sources:** ' + refs + ' (see [source register](../research/SOURCES.md)).', '', '**Refines:** ' + ', '.join(r['related']) + '.', ''])
     return '\n'.join(lines)
 
 if __name__ == '__main__':

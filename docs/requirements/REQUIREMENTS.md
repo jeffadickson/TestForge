@@ -1,6 +1,6 @@
 # TestForge requirements baseline
 
-96 proposed requirements, dated 2026-10-14. None is declared implemented or verified. P0: required before a controlled flight-hardware pilot. P1: full operational scope, staged only when explicitly excluded from the pilot. Numerical targets are proposals. Generated from [requirements.json](requirements.json); edit that catalog and rerun `python3 tools/render_requirements.py`.
+122 proposed requirements, dated 2026-10-14. None is declared implemented or verified. P0: required before a controlled flight-hardware pilot. P1: full operational scope, staged only when explicitly excluded from the pilot. Numerical targets are proposals. Generated from [requirements.json](requirements.json); edit that catalog and rerun `python3 tools/render_requirements.py`.
 
 See the [evaluation plan](../research/EVALUATION_PLAN.md) for combined campaigns and [architecture](../architecture/ARCHITECTURE.md) for responsibility boundaries.
 
@@ -54,6 +54,78 @@ The system shall link steps and analyses to versioned verification requirements 
 
 **Acceptance:** Change a requirement revision and verify affected released procedures and evidence are flagged for review.
 
+### PROC-09 — Reusable content provenance (P1)
+
+The system shall record the source revision and expansion of every template, snippet and included procedure in each released package.
+
+**Acceptance:** Revise a reused snippet; verify an existing run is unchanged and affected future drafts can be identified.
+
+**Basis:** Derived refinement: reuse requires dependency provenance, not a mutable reference.
+
+**Sources:** S51, S52 (see [source register](../research/SOURCES.md)).
+
+**Refines:** PROC-02, PROC-03.
+
+### PROC-10 — Import reconciliation (P1)
+
+The system shall produce a source-to-draft mapping and unresolved-conversion report for imported procedures, requiring author disposition before release.
+
+**Acceptance:** Import a document with merged tables, warnings, units and ambiguous numbering; verify no missing item is silently accepted.
+
+**Basis:** Derived refinement: a fast import is useful only if meaning survives conversion.
+
+**Sources:** S51 (see [source register](../research/SOURCES.md)).
+
+**Refines:** PROC-07, PROC-05.
+
+### PROC-11 — Default value provenance (P0)
+
+The system shall distinguish default, copied, manually observed and instrument-acquired values and prohibit an unconfirmed default from satisfying a required observation.
+
+**Acceptance:** Start a run with an in-limit default; verify it cannot produce a measured pass or witness signature before an authorized observation.
+
+**Basis:** TestForge policy derived from the risk of prefilled observations.
+
+**Sources:** S52 (see [source register](../research/SOURCES.md)).
+
+**Refines:** PROC-03, DATA-01.
+
+### PROC-12 — Explainable branch decisions (P0)
+
+The system shall persist each branch decision with its expression revision, input values and selected path, treating missing or invalid operands as unresolved.
+
+**Acceptance:** Exercise section and variable branches with false, missing and stale operands; reproduce each decision from exported evidence.
+
+**Basis:** Derived refinement: branching must remain reconstructable after inputs change.
+
+**Sources:** S53 (see [source register](../research/SOURCES.md)).
+
+**Refines:** PROC-04, EXEC-03.
+
+### PROC-13 — Iteration identity (P1)
+
+The system shall identify each planned batch iteration separately from a retest attempt and bind its inputs, signatures and dependencies to that iteration.
+
+**Acceptance:** Run three planned cycles and repeat the second after failure; verify four attempts remain with three planned cycle identities.
+
+**Basis:** Derived refinement of batch execution; planned repetition is not a replacement for failed evidence.
+
+**Sources:** S58 (see [source register](../research/SOURCES.md)).
+
+**Refines:** PROC-03, CHG-06.
+
+### PROC-14 — Test condition matrix (P1)
+
+The system shall version the planned combinations of test points, configurations and environmental conditions and report coverage against that matrix.
+
+**Acceptance:** Plan two configurations at three temperatures; execute five combinations and verify the sixth remains uncovered despite all five passing.
+
+**Basis:** Derived test-management requirement; detailed matrix semantics are TestForge design.
+
+**Sources:** S61 (see [source register](../research/SOURCES.md)).
+
+**Refines:** PROC-08, CLOSE-06.
+
 ## EXEC — Station runtime
 
 ### EXEC-01 — Run identity (P0)
@@ -103,6 +175,42 @@ The system shall permit one controlling authority per run and exclusive resource
 The system shall record shift handover, active configuration, held operations and transfer of operator responsibility.
 
 **Acceptance:** Resume after a personnel change and verify the new operator acknowledges outstanding conditions.
+
+### EXEC-09 — Scoped hold constraints (P0)
+
+The system shall maintain independent run, section and step holds with reason, owner and explicit release predicates, preserving child holds when a parent clears.
+
+**Acceptance:** Set an issue hold and a separate child QA hold; resolve the issue and verify the child stays held and its owner is displayed.
+
+**Basis:** Derived refinement: a dependency becoming satisfied does not imply all holds are released.
+
+**Sources:** S48, S49 (see [source register](../research/SOURCES.md)).
+
+**Refines:** EXEC-04, CHG-08.
+
+### EXEC-10 — Command resume authorization (P0)
+
+The system shall require an authorized local resume decision and renewed hardware readiness checks before a cleared workflow constraint can permit a hardware command.
+
+**Acceptance:** Clear a remote issue while a local step is paused; verify no command is sent until the local gate is completed.
+
+**Basis:** TestForge policy intentionally separates automatic administrative progress from hardware resumption.
+
+**Sources:** S48 (see [source register](../research/SOURCES.md)).
+
+**Refines:** EXEC-04, HW-07.
+
+### EXEC-11 — Duration semantics (P0)
+
+The system shall define elapsed, active and hold time separately and record the clock and pause/reset policy used by duration-dependent acceptance rules.
+
+**Acceptance:** Pause a dwell, move wall time backward and restart the station; verify the configured rule cannot count unobserved time as valid dwell.
+
+**Basis:** Derived refinement; measured task duration alone does not prove a valid physical soak.
+
+**Sources:** S57, S59 (see [source register](../research/SOURCES.md)).
+
+**Refines:** DATA-04, PROC-04.
 
 ## AUTH — Identity and approval service
 
@@ -154,6 +262,54 @@ The system shall record authorized delegation and reconcile newly discovered rev
 
 **Acceptance:** Revoke an offline user centrally and verify reconnect creates an attributable review issue.
 
+### AUTH-09 — Qualification at action time (P0)
+
+The system shall check required skill and certification validity for the specific role and action at execution and signoff time, retaining the evaluated qualification snapshot.
+
+**Acceptance:** Expire QA qualification after run start; verify a new QA signoff is blocked locally and online without erasing earlier signatures.
+
+**Basis:** Derived refinement: an assigned role can be temporarily unusable; offline validity must be explicit.
+
+**Sources:** S50 (see [source register](../research/SOURCES.md)).
+
+**Refines:** AUTH-06, AUTH-08.
+
+### AUTH-10 — Granular evidence signatures (P0)
+
+The system shall allow signatures on identified table rows and content blocks with defined required fields and freeze their signed evidence scope.
+
+**Acceptance:** Sign one row, reorder rows and edit a second row; verify the original signature still identifies the first row and rejects an unsigned change to its evidence.
+
+**Basis:** Derived refinement of row signatures and required versus optional content.
+
+**Sources:** S49, S56 (see [source register](../research/SOURCES.md)).
+
+**Refines:** AUTH-04, PROC-01.
+
+### AUTH-11 — Signature withdrawal (P0)
+
+The system shall record withdrawal of a signature as a new attributed event with reason, preserving the original signature and reevaluating dependent approvals.
+
+**Acceptance:** Withdraw a row signature after QA review; verify the original remains inspectable, closure is blocked and no hardware operation is repeated.
+
+**Basis:** Derived distinction between correcting an approval and physically repeating a test.
+
+**Sources:** S56 (see [source register](../research/SOURCES.md)).
+
+**Refines:** AUTH-04, CHG-07.
+
+### AUTH-12 — Review round integrity (P0)
+
+The system shall bind staged approvals and comment dispositions to a review round and content revision, with required redisposition after a consequential change.
+
+**Acceptance:** Approve engineering review, change an acceptance limit during QA review and verify the obsolete approval cannot authorize release.
+
+**Basis:** Derived refinement: staged review must not retain misleading approval applicability.
+
+**Sources:** S57, S05 (see [source register](../research/SOURCES.md)).
+
+**Refines:** AUTH-03, CHG-07.
+
 ## CHG — Change control service
 
 ### CHG-01 — Proposed redlines (P0)
@@ -203,6 +359,30 @@ The system shall mark affected downstream evidence and approvals for reevaluatio
 The system shall link deviations and nonconformances to article, run, affected steps and authorized dispositions.
 
 **Acceptance:** Accept a documented waiver and verify the measured failure is preserved rather than relabeled pass.
+
+### CHG-09 — Cross-run change adoption (P0)
+
+The system shall present a shared redline as a separately evaluated change for each receiving run, with applicability, impact assessment and adoption approval before use.
+
+**Acceptance:** Offer one change to runs with pending, executing and signed affected steps; verify each obtains an explicit disposition and no signed history is rewritten.
+
+**Basis:** TestForge policy; propagation transports a proposal, not authority to overwrite a running baseline.
+
+**Sources:** S55 (see [source register](../research/SOURCES.md)).
+
+**Refines:** CHG-02, CHG-03, CHG-07.
+
+### CHG-10 — Historical revision restoration (P1)
+
+The system shall restore earlier procedure content only into a new draft with ancestry and normal release review.
+
+**Acceptance:** Restore an older revision; verify original releases and run links are unchanged and the restored draft cannot execute as a released revision.
+
+**Basis:** Derived refinement of version rollback semantics.
+
+**Sources:** S54 (see [source register](../research/SOURCES.md)).
+
+**Refines:** PROC-02.
 
 ## HW — Workers and instrument gateway
 
@@ -254,6 +434,30 @@ The system shall ingest typed worker measurements and artifacts through a valida
 
 **Acceptance:** Send malformed units, duplicate samples and a truncated artifact; verify explicit rejection or incomplete status.
 
+### HW-09 — Command failure propagation (P0)
+
+The system shall map command rejection, execution failure, timeout and unknown outcome into explicit step dispositions and prevent automatic success or progression through a required failed command.
+
+**Acceptance:** Inject all four outcomes into a multi-command step; verify evidence distinguishes them and no later hazardous command runs implicitly.
+
+**Basis:** Derived refinement: a single Boolean command result loses essential recovery information.
+
+**Sources:** S55 (see [source register](../research/SOURCES.md)).
+
+**Refines:** EXEC-03, EXEC-05, HW-05.
+
+### HW-10 — Telemetry acceptance window (P0)
+
+The system shall evaluate telemetry-based acceptance using a versioned rule defining units, sample validity, freshness and required observation window.
+
+**Acceptance:** Replay a previously passing stale sample, then introduce a data gap during a required dwell; verify neither yields a valid pass.
+
+**Basis:** TestForge-derived integrity rule; vendor integration and duration features motivate it, not establish equivalent behavior.
+
+**Sources:** S08, S59 (see [source register](../research/SOURCES.md)).
+
+**Refines:** DATA-01, DATA-04, HW-08.
+
 ## CAL — Asset and reference adapters
 
 ### CAL-01 — Asset chain (P0)
@@ -303,6 +507,18 @@ The system shall retain range, resolution, uncertainty model and approved guard-
 The system shall provide read adapters with provenance, timeouts, schema validation and independently testable mappings.
 
 **Acceptance:** Change an upstream schema and verify failure is explicit without modifying prior snapshots.
+
+### CAL-09 — Configuration changes during testing (P0)
+
+The system shall record article component changes with before/after configuration, serial or lot identity, effective run position and approval, reevaluating affected verification coverage.
+
+**Acceptance:** Replace a component between two measurements; verify each measurement resolves to the correct configuration and earlier results are not silently assigned to the replacement.
+
+**Basis:** Derived refinement of in-run assembly updates and genealogy.
+
+**Sources:** S49, S59 (see [source register](../research/SOURCES.md)).
+
+**Refines:** PROC-06, CLOSE-06.
 
 ## DATA — Evidence service
 
@@ -354,6 +570,18 @@ The system shall retain protected records and verify coordinated backup and rest
 
 **Acceptance:** Restore a backup and compare all committed evidence and manifest hashes with the source.
 
+### DATA-09 — Context-aware comparison (P1)
+
+The system shall show procedure revision, article configuration, calibration and analysis context when comparing results or attachments across runs.
+
+**Acceptance:** Compare visually similar records with different limit revisions and configurations; verify incompatibilities are visible before a comparison can support approval.
+
+**Basis:** Derived refinement: visual similarity is not proof of interchangeable evidence.
+
+**Sources:** S54 (see [source register](../research/SOURCES.md)).
+
+**Refines:** DATA-02, CLOSE-03.
+
 ## OFF — Local station runtime
 
 ### OFF-01 — Local web application (P0)
@@ -404,6 +632,18 @@ The system shall support encrypted, signed export/import bundles when network sy
 
 **Acceptance:** Import the same removable-media bundle twice and verify deduplication and custody records.
 
+### OFF-09 — Offline capability manifest (P0)
+
+The system shall declare offline support and preparation prerequisites for every enabled action and adapter and reject package readiness when required operations are unavailable.
+
+**Acceptance:** Prepare a run requiring start, QA signoff, redline, camera capture, Python/VISA, analysis and upload; disconnect and verify each declared capability or a pre-departure blocker.
+
+**Basis:** Derived refinement: procedure cache eligibility does not prove the entire workflow can operate offline.
+
+**Sources:** S05, S06, S07, S58 (see [source register](../research/SOURCES.md)).
+
+**Refines:** OFF-02, OFF-07.
+
 ## SYNC — Replication service
 
 ### SYNC-01 — Transactional outbox (P0)
@@ -453,6 +693,18 @@ The system shall compare execution snapshots with later releases, recalls and re
 The system shall retain local evidence until complete central receipt and configured backup/retention gates are met.
 
 **Acceptance:** Lose the final receipt or fail the central backup gate and verify local cleanup is refused.
+
+### SYNC-09 — Per-operation reconciliation visibility (P0)
+
+The system shall display locally committed, upload pending, uploaded, centrally verified and conflicted states for required events and artifacts without collapsing them into one synced flag.
+
+**Acceptance:** Upload event metadata while withholding an attachment and a signature dependency; verify operators can identify both blockers and final closure remains inhibited.
+
+**Basis:** Derived refinement: optimistic online status must not be mistaken for verified completeness.
+
+**Sources:** S05, S06, S07 (see [source register](../research/SOURCES.md)).
+
+**Refines:** SYNC-04, OPS-01.
 
 ## CLOSE — Review and analysis services
 
@@ -554,6 +806,30 @@ The system shall distinguish simulation, development, engineering and flight ope
 
 **Acceptance:** Attempt to present simulated measurements as flight evidence and verify the provenance is unmistakable.
 
+### SEC-09 — Optimistic mutation control (P0)
+
+The system shall require expected revision preconditions for consequential API mutations and return conflicts without overwriting newer accepted state.
+
+**Acceptance:** Submit two concurrent limit or redline edits against the same revision; verify only one succeeds and the other must be reviewed against the new state.
+
+**Basis:** TestForge design choice: prevent silent last-writer-wins behavior in consequential edits.
+
+**Sources:** S60 (see [source register](../research/SOURCES.md)).
+
+**Refines:** SEC-01, CHG-07.
+
+### SEC-10 — Service principal boundaries (P0)
+
+The system shall identify service actions separately from human signatures and scope integration credentials by project and permitted action, with recorded rotation and revocation.
+
+**Acceptance:** Use a valid ingestion credential to attempt QA approval or cross-project reads; verify denial and attributable audit events.
+
+**Basis:** Derived refinement: access to automation APIs is not authority to impersonate a witness.
+
+**Sources:** S60, S50 (see [source register](../research/SOURCES.md)).
+
+**Refines:** AUTH-01, SEC-01, SEC-03.
+
 ## OPS — Platform operations and user interface
 
 ### OPS-01 — Operational display (P0)
@@ -603,3 +879,39 @@ The system shall support reproducible offline installation, controlled schema mi
 The system shall document storage sizing, backups, restore, instrument compatibility and incident recovery for operators.
 
 **Acceptance:** A second engineer follows the runbook to restore a station and identify an unresolved command outcome.
+
+### OPS-09 — Versioned custom metadata (P1)
+
+The system shall support typed, scoped custom metadata with schema revision and distinguish classification fields from evidence or acceptance fields.
+
+**Acceptance:** Change a custom field type after release; verify historical values retain their schema and consequential fields require controlled revision.
+
+**Basis:** Derived extensibility requirement; customization must not bypass evidence controls.
+
+**Sources:** S49 (see [source register](../research/SOURCES.md)).
+
+**Refines:** PROC-02, DATA-07.
+
+### OPS-10 — Handover acknowledgment (P0)
+
+The system shall require the incoming authorized operator to acknowledge outstanding holds, unknown command outcomes, pending redlines and assigned tasks before taking control.
+
+**Acceptance:** Transfer a run with an unresolved command and reassigned task; verify control stays blocked until acknowledgment and hardware recovery gates are met.
+
+**Basis:** Derived refinement of task tracking and shift continuity.
+
+**Sources:** S54 (see [source register](../research/SOURCES.md)).
+
+**Refines:** EXEC-08, EXEC-05.
+
+### OPS-11 — Durable workflow actions (P1)
+
+The system shall version event-triggered administrative workflows and durably track deduplicated actions, bounded retries and terminal failures without issuing hardware commands directly.
+
+**Acceptance:** Deliver the same failed-step event twice, interrupt issue creation and retry; verify one logical issue and a visible unresolved action if the destination remains unavailable.
+
+**Basis:** Derived reliability requirement for trigger/condition/action automation.
+
+**Sources:** S51 (see [source register](../research/SOURCES.md)).
+
+**Refines:** SYNC-01, SYNC-02, CLOSE-08.

@@ -313,5 +313,117 @@
     "url": "https://www.epsilon3.io/pricing",
     "note": "Deployment and seat model; obtain a scoped quote.",
     "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S46",
+    "title": "Epsilon3 2.0 announcement",
+    "url": "https://www.epsilon3.io/behind-the-console/epsilon3-2",
+    "note": "Platform direction; an announcement is not a complete feature availability guarantee.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S47",
+    "title": "Epsilon3 Connect announcement",
+    "url": "https://www.epsilon3.io/behind-the-console/epsilon3connect",
+    "note": "Distinguishes current cross-organization viewing from planned shared actions and portals.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S48",
+    "title": "Epsilon3 changelog 106",
+    "url": "https://www.epsilon3.io/behind-the-console/epsilon3-changelog-106",
+    "note": "Pause constraints and scoped inventory sharing; September 2026.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S49",
+    "title": "Epsilon3 changelog 101",
+    "url": "https://www.epsilon3.io/behind-the-console/epsilon3-changelog-101",
+    "note": "Block-level strict signoffs, pause reasons, custom fields and assembly changes.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S50",
+    "title": "Epsilon3 changelog 96",
+    "url": "https://www.epsilon3.io/behind-the-console/epsilon3-changelog-96-role-based-permissions-require-skills-for-roles-human-resources-issues-insights-dynamic-item-detail-update",
+    "note": "Project roles and skill-dependent permission validity.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S51",
+    "title": "Epsilon3 changelog 95",
+    "url": "https://www.epsilon3.io/behind-the-console/epsilon3-changelog-95-import-wizard-workflows-procedure-templates-3d-cad-file-viewer",
+    "note": "Word import, templates and trigger/condition/action workflows.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S52",
+    "title": "Epsilon3 changelog 94",
+    "url": "https://www.epsilon3.io/behind-the-console/epsilon3-changelog-94-content-snippets-default-values-for-field-inputs-default-values-for-custom-fields",
+    "note": "Reusable content, defaults and attachment download.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S53",
+    "title": "Epsilon3 changelog 92",
+    "url": "https://www.epsilon3.io/behind-the-console/epsilon3-changelog-92-low-inventory-tracking-section-conditionals-conditionals-with-variables-sales-orders",
+    "note": "Section and variable branching.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S54",
+    "title": "Epsilon3 changelog 90",
+    "url": "https://www.epsilon3.io/behind-the-console/epsilon-changelog-90-tasks-compare-step-attachments-across-runs-revert-to-prior-procedure-version-november-2025",
+    "note": "Tasks, historical attachment comparison and draft branching from an older version.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S55",
+    "title": "Epsilon3 changelog 81",
+    "url": "https://www.epsilon3.io/behind-the-console/changelog-81-real-time-redline-command-auto-up-revision",
+    "note": "Cross-run redline propagation and command-failure behavior.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S56",
+    "title": "Epsilon3 changelog 62",
+    "url": "https://www.epsilon3.io/behind-the-console/epsilon3-changelog-62-revoke-table-signoffs-review-parts-duro-valispace",
+    "note": "Signoff revocation and row-level signatures.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S57",
+    "title": "Epsilon3 changelog 60",
+    "url": "https://www.epsilon3.io/behind-the-console/epsilon3-changelog-60-landing-page-multi-stage-review-step-durations-scrap",
+    "note": "Sequential review and stage-level approval reset policy.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S58",
+    "title": "Epsilon3 changelog 75",
+    "url": "https://www.epsilon3.io/behind-the-console/changelog-75-ai-procedure-generation-batch-steps",
+    "note": "Offline enablement, batch iterations and camera capture; March 2025.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S59",
+    "title": "Epsilon3 changelog 73",
+    "url": "https://www.epsilon3.io/behind-the-console/changelog-73-duration-based-conditionals-aboms-login-disclaimer",
+    "note": "Duration branching and as-built genealogy; December 2024.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S60",
+    "title": "Epsilon3 public API reference",
+    "url": "https://docs.epsilon3.io/",
+    "note": "Versioned run/procedure interfaces; API behavior is not a hardware durability guarantee.",
+    "reviewed": "2026-10-14"
+  },
+  {
+    "id": "S61",
+    "title": "Epsilon3 test management",
+    "url": "https://www.epsilon3.io/test-management",
+    "note": "Test plans, cases, points, requirements and hazards.",
+    "reviewed": "2026-10-14"
   }
 ]

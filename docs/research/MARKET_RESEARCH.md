@@ -268,3 +268,7 @@ This is a deep assessment of a defined shortlist, not an exhaustive census of al
 Next evidence: demonstrations of Epsilon3 and Nominal; COSMOS Enterprise access if its identity layer is to be evaluated; identical OpenTAP/OpenHTF adapter prototypes; a representative Windows VISA/USB inventory; project QA acceptance of offline authority; measured data volumes; scoped quotes; and a refresh of Loom against a pinned current commit before implementation reuse.
 
 The [evaluation plan](EVALUATION_PLAN.md) and [backlog](../BACKLOG.md) turn these unknowns into concrete work. The historical baseline remains archived so changes in conclusions are visible.
+
+## Epsilon3 focused follow-up — 14 October 2026
+
+The [deep dive](EPSILON3_DEEP_DIVE.md) examines the 2.0 announcement, recent and historical changelogs, and API semantics. It adds 26 proposed requirements covering qualifications, granular signatures, constrained holds, cross-run changes, default-value provenance, offline capability declarations and integration integrity. The [18-case evaluation script](EPSILON3_EVALUATION.md) separates documented feature claims from behavior that still needs demonstration. This supplements the broader market assessment; it does not establish a completed vendor evaluation.

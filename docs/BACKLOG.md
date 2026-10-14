@@ -69,3 +69,12 @@ Status at 2026-10-14. These are repository work items, not claims that GitHub Is
 ## Initial decisions still open
 
 Station language/engine, central framework, selected workflow engine, deployment OS, maximum offline window, retention schedule, authority handoff policy, workload sizing and project license. Windows-first, seven days and the other numerical defaults in the original requirements are proposals to validate, not decisions implied by implementation.
+
+## Epsilon3 research follow-up
+
+- [x] Review public Epsilon3 / 2.0 documentation and extract 26 traceable requirements.
+- [x] Define 18 focused vendor evaluation scenarios with expected evidence.
+- [ ] Execute E01–E18 in a pinned, licensed deployment; retain actual results.
+- [ ] Obtain the offline action matrix, middleware topology, supported driver list and export sample.
+- [ ] Resolve QA qualification validity offline and local hardware-resume policy.
+- [ ] Obtain a scoped quote and document source/extension rights before a buy/build decision.

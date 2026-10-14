@@ -69,3 +69,9 @@ An orchestration engine can manage waiting and human review, but it cannot creat
 ## Proposed capacity targets
 
 Seven disconnected days, 10,000 procedure steps, 100 structured events/second per station, a 10 GB artifact, p95 local action acknowledgment below 500 ms excluding instrument latency, and UI recovery within 60 seconds are initial **proposals**, not measured capabilities or settled project needs. Replace them with an approved workload before qualification. Structured event rate is not a raw waveform throughput claim.
+
+## Epsilon3-derived design refinements
+
+The [deep dive](../research/EPSILON3_DEEP_DIVE.md) adds proposed contracts without choosing a vendor implementation. Extend the procedure package with reusable-content provenance, explicit default origins, branch rules and offline capability dependencies. Extend the event model with row/content evidence identities, review rounds, qualification snapshots, scoped holds, per-run change adoption and effective article configuration.
+
+The local runtime evaluates qualification and readiness at action time. Remote issue resolution can satisfy a workflow predicate but cannot directly resume hardware commands. Consequential mutations require expected revisions. Administrative workflows use durable deduplicated obligations; their workers cannot impersonate humans or directly command instruments. These are proposed responsibilities, not implemented services.

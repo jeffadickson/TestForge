@@ -7,15 +7,21 @@ from render_requirements import render
 ROOT = Path(__file__).resolve().parents[1]
 requirements = json.loads((ROOT / 'docs/requirements/requirements.json').read_text())
 sources = json.loads((ROOT / 'docs/research/sources.json').read_text())
-assert len(requirements) == 96
+assert len(requirements) >= 96
 ids = {r['id'] for r in requirements}
-assert len(ids) == 96
+assert len(ids) == len(requirements)
 for r in requirements:
     assert r['priority'] in ('P0', 'P1')
     assert all(r.get(k) for k in ('id', 'title', 'owner', 'requirement', 'acceptance'))
 assert (ROOT / 'docs/requirements/REQUIREMENTS.md').read_text() == render(), 'Regenerate requirements Markdown'
 source_ids = {s['id'] for s in sources}
 assert len(source_ids) == len(sources)
+for r in requirements:
+    if r.get('origin'):
+        assert r.get('basis') and r.get('sources') and r.get('related')
+        assert set(r['sources']) <= source_ids, r['id']
+        assert set(r['related']) <= ids, r['id']
+        assert r['id'] not in r['related'], r['id']
 register = (ROOT / 'docs/research/SOURCES.md').read_text()
 for s in sources:
     assert f"## {s['id']} —" in register

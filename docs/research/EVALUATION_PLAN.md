@@ -65,3 +65,7 @@ These preserve the original baseline scenarios. All are proposed, not results. G
 ## Decision record template
 
 For each hard gate record pass / fail / not demonstrated / not applicable with rationale, evidence and selected version. Only after all relevant hard gates pass should comparative scores for usability, integration effort and cost be applied. No aggregate score may conceal a failed command-authority or evidence gate.
+
+## Epsilon3 detailed campaign
+
+Use [E01–E18](EPSILON3_EVALUATION.md) alongside the original V01–V18 gates. These additional scenarios map to the expanded catalog and focus on signatures, qualifications, changing runs, integration failure and offline execution. None has been executed.
